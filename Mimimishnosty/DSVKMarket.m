@@ -68,7 +68,6 @@
                         NSArray *items = [response objectForKey:@"items"];
                         self.marketItems = [NSArray arrayWithArray:items];
                         
-                        //[[DSMarketManager sharedManager] loadShopItemsFromArray:items];
                         
                         NSLog(@"\n\nItems loaded");
                         result = YES;
