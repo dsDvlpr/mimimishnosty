@@ -253,7 +253,7 @@ static NSArray *scope = nil;
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     
-    NSLog(@"\n\nПользователь: %@ %@", result.user.first_name, result.user.last_name);
+    
  
 }
 
