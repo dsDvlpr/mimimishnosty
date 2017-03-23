@@ -10,4 +10,8 @@
 
 @interface DSVKMarket : NSObject
 
+- (instancetype)initWithGroupId:(NSString*) groupId;
+- (NSArray *) marketItems;
+- (BOOL) loadMarkteItems;
+
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "DSStartViewController.h"
+#import "SCLAlertView.h"
+#import "DSVKManager.h"
 
 @interface DSStartViewController ()
 
@@ -16,7 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.logInButton.alpha = 0.f;
+    
+    DSVKManager *vkManager = [DSVKManager sharedManager];
+    
+    [vkManager checkAuthorisationOnSuccess:^{
+        [vkManager loadUser];
+        
+    }
+                                  onFailor:^{
+                                      
+                                      self.logInButton.alpha = 1.f;
+
+                                  }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +49,19 @@
 }
 */
 
+#pragma mark - Actions
+
+- (IBAction)actionVKLogIn:(UIButton *)sender {
+    
+    DSVKManager *vkManager = [DSVKManager sharedManager];
+    [vkManager logIn];
+    
+}
+
+- (IBAction)actionLogOut:(UIButton *)sender {
+    
+    DSVKManager *vkManager = [DSVKManager sharedManager];
+    [vkManager logOut];
+    
+}
 @end

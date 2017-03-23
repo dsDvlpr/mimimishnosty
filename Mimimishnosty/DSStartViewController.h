@@ -10,4 +10,10 @@
 
 @interface DSStartViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *logInButton;
+
+
+- (IBAction)actionVKLogIn:(UIButton *)sender;
+- (IBAction)actionLogOut:(UIButton *)sender;
+
 @end

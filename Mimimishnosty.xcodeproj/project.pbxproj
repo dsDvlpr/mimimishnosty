@@ -14,9 +14,15 @@
 		6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D00999D1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld */; };
 		6D0099A11E8022A3001E5A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099A01E8022A3001E5A50 /* Assets.xcassets */; };
 		6D0099A41E8022A3001E5A50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099A21E8022A3001E5A50 /* LaunchScreen.storyboard */; };
+		6D0099AD1E802613001E5A50 /* Start.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099AC1E802613001E5A50 /* Start.jpg */; };
+		6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099B01E802A10001E5A50 /* DSStartViewController.m */; };
+		6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099BA1E8032D1001E5A50 /* DSVKManager.m */; };
+		6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099BE1E8095BE001E5A50 /* DSVKMarket.m */; };
+		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B471DB22E328CD1278A19AC /* Pods-Mimimishnosty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.debug.xcconfig"; sourceTree = "<group>"; };
 		6D00998E1E8022A2001E5A50 /* Mimimishnosty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimimishnosty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0099921E8022A2001E5A50 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D0099941E8022A2001E5A50 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +34,15 @@
 		6D0099A01E8022A3001E5A50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D0099A31E8022A3001E5A50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D0099A51E8022A3001E5A50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D0099AC1E802613001E5A50 /* Start.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Start.jpg; path = Images/Start.jpg; sourceTree = "<group>"; };
+		6D0099AF1E802A10001E5A50 /* DSStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSStartViewController.h; sourceTree = "<group>"; };
+		6D0099B01E802A10001E5A50 /* DSStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSStartViewController.m; sourceTree = "<group>"; };
+		6D0099B91E8032D1001E5A50 /* DSVKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSVKManager.h; sourceTree = "<group>"; };
+		6D0099BA1E8032D1001E5A50 /* DSVKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSVKManager.m; sourceTree = "<group>"; };
+		6D0099BD1E8095BE001E5A50 /* DSVKMarket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSVKMarket.h; sourceTree = "<group>"; };
+		6D0099BE1E8095BE001E5A50 /* DSVKMarket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSVKMarket.m; sourceTree = "<group>"; };
+		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +50,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		164378FA1ECDD4CBF0441A9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B471DB22E328CD1278A19AC /* Pods-Mimimishnosty.debug.xcconfig */,
+				B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5FC0DF1FC76BCB91DC4C40DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6D0099851E8022A2001E5A50 = {
 			isa = PBXGroup;
 			children = (
 				6D0099901E8022A2001E5A50 /* Mimimishnosty */,
 				6D00998F1E8022A2001E5A50 /* Products */,
+				164378FA1ECDD4CBF0441A9B /* Pods */,
+				5FC0DF1FC76BCB91DC4C40DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +95,9 @@
 		6D0099901E8022A2001E5A50 /* Mimimishnosty */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099B21E803131001E5A50 /* Managers */,
+				6D0099AE1E8029E5001E5A50 /* StartViewController */,
+				6D0099AB1E8025E2001E5A50 /* Images */,
 				6D0099941E8022A2001E5A50 /* AppDelegate.h */,
 				6D0099951E8022A2001E5A50 /* AppDelegate.m */,
 				6D0099971E8022A2001E5A50 /* ViewController.h */,
@@ -82,6 +120,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6D0099AB1E8025E2001E5A50 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099AC1E802613001E5A50 /* Start.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6D0099AE1E8029E5001E5A50 /* StartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099AF1E802A10001E5A50 /* DSStartViewController.h */,
+				6D0099B01E802A10001E5A50 /* DSStartViewController.m */,
+			);
+			name = StartViewController;
+			sourceTree = "<group>";
+		};
+		6D0099B21E803131001E5A50 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099BC1E809595001E5A50 /* DSVKMarket */,
+				6D0099B91E8032D1001E5A50 /* DSVKManager.h */,
+				6D0099BA1E8032D1001E5A50 /* DSVKManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		6D0099BC1E809595001E5A50 /* DSVKMarket */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099BD1E8095BE001E5A50 /* DSVKMarket.h */,
+				6D0099BE1E8095BE001E5A50 /* DSVKMarket.m */,
+			);
+			name = DSVKMarket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D0099A81E8022A3001E5A50 /* Build configuration list for PBXNativeTarget "Mimimishnosty" */;
 			buildPhases = (
+				1F27E5F8CC2F8FE0F2B7CF68 /* [CP] Check Pods Manifest.lock */,
 				6D00998A1E8022A2001E5A50 /* Sources */,
 				6D00998B1E8022A2001E5A50 /* Frameworks */,
 				6D00998C1E8022A2001E5A50 /* Resources */,
+				1600BE2F1D619E9D4EA13DCB /* [CP] Embed Pods Frameworks */,
+				B2350525FAA9E023C77F4973 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D0099A41E8022A3001E5A50 /* LaunchScreen.storyboard in Resources */,
+				6D0099AD1E802613001E5A50 /* Start.jpg in Resources */,
 				6D0099A11E8022A3001E5A50 /* Assets.xcassets in Resources */,
 				6D00999C1E8022A2001E5A50 /* Main.storyboard in Resources */,
 			);
@@ -149,13 +227,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1600BE2F1D619E9D4EA13DCB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F27E5F8CC2F8FE0F2B7CF68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B2350525FAA9E023C77F4973 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6D00998A1E8022A2001E5A50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
+				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
+				6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */,
+				6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */,
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,
 			);
@@ -275,6 +404,7 @@
 		};
 		6D0099A91E8022A3001E5A50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B471DB22E328CD1278A19AC /* Pods-Mimimishnosty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8QFJA27NFJ;
@@ -287,6 +417,7 @@
 		};
 		6D0099AA1E8022A3001E5A50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8QFJA27NFJ;
@@ -316,6 +447,7 @@
 				6D0099AA1E8022A3001E5A50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
