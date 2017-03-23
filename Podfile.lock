@@ -1,0 +1,49 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BATabBarController (0.1.3):
+    - Masonry
+  - FLAnimatedImage (1.0.12)
+  - Masonry (1.0.2)
+  - NYTPhotoViewer (1.1.0):
+    - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
+    - NYTPhotoViewer/Core (= 1.1.0)
+  - NYTPhotoViewer/AnimatedGifSupport (1.1.0):
+    - FLAnimatedImage (~> 1.0.8)
+    - NYTPhotoViewer/Core
+  - NYTPhotoViewer/Core (1.1.0)
+  - SCLAlertView-Objective-C (1.0.6)
+  - VK-ios-sdk (1.4.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - BATabBarController
+  - NYTPhotoViewer (~> 1.1.0)
+  - SCLAlertView-Objective-C
+  - VK-ios-sdk
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BATabBarController: b198a0530fff9233450ed35f43a96431e0815d31
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
+  SCLAlertView-Objective-C: ca78280817e66e74366b78579350dee2ff277e23
+  VK-ios-sdk: 296c3be1bb45faf4d9f9a2ca69dcf6ec71d9d4df
+
+PODFILE CHECKSUM: 9494b72998926bb944848f63c58cec530502f6c0
+
+COCOAPODS: 1.1.1
