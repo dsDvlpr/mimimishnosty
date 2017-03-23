@@ -51,7 +51,7 @@
                             @(20),                              @"count",
                             @(0),                               @"offset",
                             @(1),                               @"extended",
-                            @"5.63",                            @"v",
+                            @"5.62",                            @"v",
                             [[VKSdk accessToken] accessToken],  @"access_token",
                             nil];
     
