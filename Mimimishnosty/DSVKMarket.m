@@ -10,9 +10,12 @@
 #import <AFNetworking.h>
 #import <VKSdk.h>
 
+NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManagerShopArrayDidChangeNotification";
+
 @interface DSVKMarket ()
 
-@property (strong, nonatomic) NSArray *marketItems;
+@property (strong, nonatomic) NSArray *items;
+
 @property (strong, nonatomic) NSString *groupID;
 
 @end
@@ -28,17 +31,31 @@
     
     return self;
 }
+/*
+#pragma mark - getter
 
-- (NSArray *) marketItems {
+- (NSArray *) items {
     
-    if ([self.marketItems count] == 0) {
-        [self loadMarkteItems];
+    if ([_items count] == 0) {
+        [self loadMarketItems];
+        
     }
     
-    return self.marketItems;
+    return _items;
+}
+*/
+#pragma mark - setters
+
+-(void)setItems:(NSArray *)items {
+    
+    _items = items;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:DSMarketManagerShopArrayDidChangeNotification object:nil];
+
+    
 }
 
--(BOOL)loadMarkteItems {
+-(BOOL)loadMarketItems {
     
     NSString *URLString = @"https://api.vk.com/method/";
     NSURL *URL =[NSURL URLWithString:URLString];
@@ -66,9 +83,9 @@
                         
                         NSDictionary *response = [responseObject objectForKey:@"response"];
                         NSArray *items = [response objectForKey:@"items"];
-                        self.marketItems = [NSArray arrayWithArray:items];
+                        self.items = [NSArray arrayWithArray:items];
                         
-                        
+                        NSLog(@"\n%@", response);
                         NSLog(@"\n\nItems loaded");
                         result = YES;
                         

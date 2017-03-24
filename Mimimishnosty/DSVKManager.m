@@ -18,6 +18,7 @@ NSString* const DSVKManagerLogInNotification = @"DSVKManagerLogInNotification";
 NSString* const DSVKManagerLogInUserInfoKey = @"DSVKManagerLogInUserInfoKey";
 
 NSString *appID = @"5937274";
+NSString *groupID = @"-130609790";
 
 @interface DSVKManager () <VKSdkUIDelegate, VKSdkDelegate>
 
@@ -46,7 +47,8 @@ static NSArray *scope = nil;
         scope = @[VK_PER_FRIENDS, VK_PER_WALL, VK_PER_AUDIO, VK_PER_PHOTOS, VK_PER_EMAIL, VK_PER_MESSAGES, VK_PER_MARKET, VK_PER_STATUS];
         
         [[VKSdk initializeWithAppId:appID] registerDelegate:self];
-        [[VKSdk instance] setUiDelegate:self];        
+        [[VKSdk instance] setUiDelegate:self];
+        self.vkMarket = [[DSVKMarket alloc] initWithGroupId:groupID];
 
     }
     
@@ -67,6 +69,8 @@ static NSArray *scope = nil;
         if (state == VKAuthorizationAuthorized) {
             
             [self loadUser];
+            [self.vkMarket loadMarketItems];
+            
             NSLog(@"\nАвторизовались по старинке");
             self.isAuthorisationViewControllerHidden = YES;
             
@@ -83,7 +87,7 @@ static NSArray *scope = nil;
     
     if ([VKSdk isLoggedIn]) {
         
-        [self.vkMarket loadMarkteItems];
+        [self.vkMarket loadMarketItems];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:DSVKManagerLogInNotification object:nil];
         
@@ -105,6 +109,7 @@ static NSArray *scope = nil;
             
             if (success) {
                 success();
+                [self.vkMarket loadMarketItems];
             }
             
         } else {
@@ -244,7 +249,7 @@ static NSArray *scope = nil;
     
     if ([VKSdk isLoggedIn]) {
         
-        [self.vkMarket loadMarkteItems];
+        [self.vkMarket loadMarketItems];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:DSVKManagerLogInNotification object:nil];
         

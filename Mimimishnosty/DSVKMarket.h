@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const DSMarketManagerShopArrayDidChangeNotification;
+
 @interface DSVKMarket : NSObject
 
+
 - (instancetype)initWithGroupId:(NSString*) groupId;
-- (NSArray *) marketItems;
-- (BOOL) loadMarkteItems;
+- (BOOL) loadMarketItems;
 
 @end
