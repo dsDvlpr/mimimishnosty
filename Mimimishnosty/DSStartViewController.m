@@ -32,6 +32,11 @@
                                       self.logInButton.alpha = 1.f;
 
                                   }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleLogInNotification:)
+                                                 name:DSVKManagerLogInNotification
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +54,14 @@
 }
 */
 
+#pragma mark - Handle notification
+- (void) handleLogInNotification:(NSNotification*) notification {
+    
+    self.logInButton.alpha = 0.f;
+    NSLog(@"handleLogInNotification");
+    
+}
+
 #pragma mark - Actions
 
 - (IBAction)actionVKLogIn:(UIButton *)sender {
@@ -62,6 +75,7 @@
     
     DSVKManager *vkManager = [DSVKManager sharedManager];
     [vkManager logOut];
+    self.logInButton.alpha = 1.f;
     
 }
 @end

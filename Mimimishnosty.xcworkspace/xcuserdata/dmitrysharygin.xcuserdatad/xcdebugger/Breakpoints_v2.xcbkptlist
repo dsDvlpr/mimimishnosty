@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mimimishnosty/DSVKManager.m"
-            timestampString = "511892364.242834"
+            timestampString = "512066003.123796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-vkSdkAccessAuthorizationFinishedWithResult:"
             landmarkType = "7">
          </BreakpointContent>

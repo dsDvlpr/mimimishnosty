@@ -10,9 +10,9 @@
 #import "DSVKMarket.h"
 #import <VKUser.h>
 
-extern NSString* const DSVKManagerAuthorisationViewControllerHiddenDidChangeNotification;
+extern NSString* const DSVKManagerLogInNotification;
 
-extern NSString* const DSVKManagerAuthorisationViewControllerHiddenUserInfoKey;
+extern NSString* const DSVKManagerLogInUserInfoKey;
 
 @interface DSVKManager : NSObject
 

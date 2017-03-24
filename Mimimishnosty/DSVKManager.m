@@ -13,9 +13,9 @@
 #import <VKUser.h>
 #import "SCLAlertView.h"
 
-NSString* const DSVKManagerAuthorisationViewControllerHiddenDidChangeNotification = @"DSVKManagerAuthorisationViewControllerHiddenDidChangeNotification";
+NSString* const DSVKManagerLogInNotification = @"DSVKManagerLogInNotification";
 
-NSString* const DSVKManagerAuthorisationViewControllerHiddenUserInfoKey = @"DSVKManagerAuthorisationViewControllerHiddenUserInfoKey";
+NSString* const DSVKManagerLogInUserInfoKey = @"DSVKManagerLogInUserInfoKey";
 
 NSString *appID = @"5937274";
 
@@ -53,21 +53,6 @@ static NSArray *scope = nil;
     return self;
 }
 
-#pragma mark - setters
-
-// post a notification about hidding authorisation VC
-
-- (void) setAuthorisationViewControllerHidden:(BOOL)hidden {
-    
-    _isAuthorisationViewControllerHidden = hidden;
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObject:@(hidden) forKey:DSVKManagerAuthorisationViewControllerHiddenUserInfoKey];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:DSVKManagerAuthorisationViewControllerHiddenDidChangeNotification
-                                                        object:nil
-                                                      userInfo:dictionary];
-    
-}
-
 #pragma mark - getters 
 - (BOOL) isLoggedIn {
     return [VKSdk isLoggedIn];
@@ -85,6 +70,7 @@ static NSArray *scope = nil;
             NSLog(@"\nАвторизовались по старинке");
             self.isAuthorisationViewControllerHidden = YES;
             
+            
         } else {
             
             if (error) {
@@ -98,6 +84,9 @@ static NSArray *scope = nil;
     if ([VKSdk isLoggedIn]) {
         
         [self.vkMarket loadMarkteItems];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:DSVKManagerLogInNotification object:nil];
+        
     }
 
     return [VKSdk isLoggedIn];
@@ -230,12 +219,12 @@ static NSArray *scope = nil;
     
 }
 
-- (void)vkSdkDidDismissViewController:(UIViewController *)controller{
+- (void)vkSdkWillDismissViewController:(UIViewController *)controller{
+    
     
     if ([VKSdk isLoggedIn]) {
         [self loadUser];
     }
-    
 }
 
 - (void) showGreetingsAlert {
@@ -253,7 +242,13 @@ static NSArray *scope = nil;
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     
-    
+    if ([VKSdk isLoggedIn]) {
+        
+        [self.vkMarket loadMarkteItems];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:DSVKManagerLogInNotification object:nil];
+        
+    }
  
 }
 
