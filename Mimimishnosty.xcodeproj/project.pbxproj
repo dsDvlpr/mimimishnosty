@@ -18,6 +18,14 @@
 		6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099B01E802A10001E5A50 /* DSStartViewController.m */; };
 		6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099BA1E8032D1001E5A50 /* DSVKManager.m */; };
 		6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099BE1E8095BE001E5A50 /* DSVKMarket.m */; };
+		6D0099C31E873547001E5A50 /* DSBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099C21E873547001E5A50 /* DSBarViewController.m */; };
+		6D0099CA1E87554C001E5A50 /* Orders_Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C41E87554C001E5A50 /* Orders_Active.png */; };
+		6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C51E87554C001E5A50 /* Orders_Passive.png */; };
+		6D0099CC1E87554C001E5A50 /* Shop_Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C61E87554C001E5A50 /* Shop_Active.png */; };
+		6D0099CD1E87554C001E5A50 /* Shop_Passive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C71E87554C001E5A50 /* Shop_Passive.png */; };
+		6D0099CE1E87554C001E5A50 /* Shoping_Cart_Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C81E87554C001E5A50 /* Shoping_Cart_Active.png */; };
+		6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C91E87554C001E5A50 /* Shoping_Cart_Passive.png */; };
+		6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099D51E8756F7001E5A50 /* DSShopViewController.m */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +49,16 @@
 		6D0099BA1E8032D1001E5A50 /* DSVKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSVKManager.m; sourceTree = "<group>"; };
 		6D0099BD1E8095BE001E5A50 /* DSVKMarket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSVKMarket.h; sourceTree = "<group>"; };
 		6D0099BE1E8095BE001E5A50 /* DSVKMarket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSVKMarket.m; sourceTree = "<group>"; };
+		6D0099C11E873547001E5A50 /* DSBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBarViewController.h; sourceTree = "<group>"; };
+		6D0099C21E873547001E5A50 /* DSBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBarViewController.m; sourceTree = "<group>"; };
+		6D0099C41E87554C001E5A50 /* Orders_Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Orders_Active.png; path = Images/Orders_Active.png; sourceTree = "<group>"; };
+		6D0099C51E87554C001E5A50 /* Orders_Passive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Orders_Passive.png; path = Images/Orders_Passive.png; sourceTree = "<group>"; };
+		6D0099C61E87554C001E5A50 /* Shop_Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shop_Active.png; path = Images/Shop_Active.png; sourceTree = "<group>"; };
+		6D0099C71E87554C001E5A50 /* Shop_Passive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shop_Passive.png; path = Images/Shop_Passive.png; sourceTree = "<group>"; };
+		6D0099C81E87554C001E5A50 /* Shoping_Cart_Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shoping_Cart_Active.png; path = Images/Shoping_Cart_Active.png; sourceTree = "<group>"; };
+		6D0099C91E87554C001E5A50 /* Shoping_Cart_Passive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shoping_Cart_Passive.png; path = Images/Shoping_Cart_Passive.png; sourceTree = "<group>"; };
+		6D0099D41E8756F7001E5A50 /* DSShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSShopViewController.h; sourceTree = "<group>"; };
+		6D0099D51E8756F7001E5A50 /* DSShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShopViewController.m; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +113,7 @@
 		6D0099901E8022A2001E5A50 /* Mimimishnosty */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099C01E8734F2001E5A50 /* TabViewController */,
 				6D0099B21E803131001E5A50 /* Managers */,
 				6D0099AE1E8029E5001E5A50 /* StartViewController */,
 				6D0099AB1E8025E2001E5A50 /* Images */,
@@ -123,6 +142,12 @@
 		6D0099AB1E8025E2001E5A50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099C41E87554C001E5A50 /* Orders_Active.png */,
+				6D0099C51E87554C001E5A50 /* Orders_Passive.png */,
+				6D0099C61E87554C001E5A50 /* Shop_Active.png */,
+				6D0099C71E87554C001E5A50 /* Shop_Passive.png */,
+				6D0099C81E87554C001E5A50 /* Shoping_Cart_Active.png */,
+				6D0099C91E87554C001E5A50 /* Shoping_Cart_Passive.png */,
 				6D0099AC1E802613001E5A50 /* Start.jpg */,
 			);
 			name = Images;
@@ -154,6 +179,25 @@
 				6D0099BE1E8095BE001E5A50 /* DSVKMarket.m */,
 			);
 			name = DSVKMarket;
+			sourceTree = "<group>";
+		};
+		6D0099C01E8734F2001E5A50 /* TabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099C11E873547001E5A50 /* DSBarViewController.h */,
+				6D0099C21E873547001E5A50 /* DSBarViewController.m */,
+				6D0099D31E87567B001E5A50 /* ViewControllers */,
+			);
+			name = TabViewController;
+			sourceTree = "<group>";
+		};
+		6D0099D31E87567B001E5A50 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099D41E8756F7001E5A50 /* DSShopViewController.h */,
+				6D0099D51E8756F7001E5A50 /* DSShopViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,10 +262,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D0099CA1E87554C001E5A50 /* Orders_Active.png in Resources */,
+				6D0099CE1E87554C001E5A50 /* Shoping_Cart_Active.png in Resources */,
 				6D0099A41E8022A3001E5A50 /* LaunchScreen.storyboard in Resources */,
 				6D0099AD1E802613001E5A50 /* Start.jpg in Resources */,
 				6D0099A11E8022A3001E5A50 /* Assets.xcassets in Resources */,
+				6D0099CC1E87554C001E5A50 /* Shop_Active.png in Resources */,
+				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
+				6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */,
 				6D00999C1E8022A2001E5A50 /* Main.storyboard in Resources */,
+				6D0099CD1E87554C001E5A50 /* Shop_Passive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +333,11 @@
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
+				6D0099C31E873547001E5A50 /* DSBarViewController.m in Sources */,
 				6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */,
 				6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */,
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
+				6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

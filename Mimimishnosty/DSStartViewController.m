@@ -9,6 +9,7 @@
 #import "DSStartViewController.h"
 #import "SCLAlertView.h"
 #import "DSVKManager.h"
+#import "DSBarViewController.h"
 
 @interface DSStartViewController ()
 
@@ -37,6 +38,11 @@
                                              selector:@selector(handleLogInNotification:)
                                                  name:DSVKManagerLogInNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleItemsLoadedNotification:)
+                                                 name:DSMarketManagerShopArrayDidChangeNotification
+                                               object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +65,15 @@
     
     self.logInButton.alpha = 0.f;
     NSLog(@"handleLogInNotification");
+    
+}
+- (void) handleItemsLoadedNotification:(NSNotification*) notification {
+    
+    DSBarViewController *barVC = [[DSBarViewController alloc] init];
+    
+    [self presentViewController:barVC animated:YES completion:^{
+        ;
+    }];
     
 }
 
