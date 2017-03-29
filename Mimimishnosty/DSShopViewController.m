@@ -7,16 +7,34 @@
 //
 
 #import "DSShopViewController.h"
+#import "DSShopCell.h"
+#import "DSVKManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DSShopViewController ()
+
+@property (strong, nonatomic) NSArray *items;
+
 
 @end
 
 @implementation DSShopViewController
 
+static NSString *identifier = @"shopCell";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    DSVKManager *vkManager = [DSVKManager sharedManager];
+    self.items = vkManager.vkMarket.items;
+    
+    
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([DSShopCell class])
+                                bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:identifier];
+    
+    //[self.tableView registerClass:[DSShopCell class]           forCellReuseIdentifier:identifier];
 
 }
 
@@ -25,27 +43,61 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    NSLog(@"\n\nNumber of rows:%ld",[self.items count]);
+    return [self.items count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *identifier = @"shopCell";
+    
+    DSShopCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[DSShopCell alloc] init];
+    }
+    
+    NSDictionary *item = [self.items objectAtIndex:indexPath.row];
+    
+    cell.titleLabel.text = [item valueForKey:DSMarketItemTitleKey];
+    
+    NSDictionary *priceDictionary = [item valueForKey:DSMarketItemPriceKey];
+    cell.priceLabel.text = [priceDictionary valueForKey:@"text"];
+    
+    NSURL *mainImageURL = [NSURL URLWithString:[item valueForKey:DSMarketItemMainImageURLKey]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:mainImageURL];
+    __weak DSShopCell *weakCell = cell;
+    [cell.itemImageView setImageWithURLRequest:request
+                              placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
+                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                           
+                                           weakCell.itemImageView.image = image;
+                                           [weakCell layoutSubviews];
+                                           
+                                       }
+                                       failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                           
+                                           NSLog(@"Image not loaded");
+                                           
+                                       }];
     
     return cell;
 }
-*/
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 200.f;
+}
 
 /*
 // Override to support conditional editing of the table view.

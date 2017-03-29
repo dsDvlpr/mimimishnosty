@@ -26,6 +26,12 @@
 		6D0099CE1E87554C001E5A50 /* Shoping_Cart_Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C81E87554C001E5A50 /* Shoping_Cart_Active.png */; };
 		6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099C91E87554C001E5A50 /* Shoping_Cart_Passive.png */; };
 		6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099D51E8756F7001E5A50 /* DSShopViewController.m */; };
+		6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099D91E87FC20001E5A50 /* DSMarketItem.m */; };
+		6D0099DE1E880864001E5A50 /* DSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099DD1E880864001E5A50 /* DSPhoto.m */; };
+		6D0099E21E88DA8C001E5A50 /* NSArray+DSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099E11E88DA8C001E5A50 /* NSArray+DSArray.m */; };
+		6D0099E61E88DE77001E5A50 /* DSShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099E51E88DE77001E5A50 /* DSShopCell.m */; };
+		6D0099ED1E8B1874001E5A50 /* DSShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099EC1E8B1874001E5A50 /* DSShopCell.xib */; };
+		6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099EE1E8B29F3001E5A50 /* defaultPic.png */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +65,16 @@
 		6D0099C91E87554C001E5A50 /* Shoping_Cart_Passive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shoping_Cart_Passive.png; path = Images/Shoping_Cart_Passive.png; sourceTree = "<group>"; };
 		6D0099D41E8756F7001E5A50 /* DSShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSShopViewController.h; sourceTree = "<group>"; };
 		6D0099D51E8756F7001E5A50 /* DSShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShopViewController.m; sourceTree = "<group>"; };
+		6D0099D81E87FC20001E5A50 /* DSMarketItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMarketItem.h; sourceTree = "<group>"; };
+		6D0099D91E87FC20001E5A50 /* DSMarketItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMarketItem.m; sourceTree = "<group>"; };
+		6D0099DC1E880864001E5A50 /* DSPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPhoto.h; sourceTree = "<group>"; };
+		6D0099DD1E880864001E5A50 /* DSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPhoto.m; sourceTree = "<group>"; };
+		6D0099E01E88DA8C001E5A50 /* NSArray+DSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+DSArray.h"; sourceTree = "<group>"; };
+		6D0099E11E88DA8C001E5A50 /* NSArray+DSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DSArray.m"; sourceTree = "<group>"; };
+		6D0099E41E88DE77001E5A50 /* DSShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSShopCell.h; sourceTree = "<group>"; };
+		6D0099E51E88DE77001E5A50 /* DSShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShopCell.m; sourceTree = "<group>"; };
+		6D0099EC1E8B1874001E5A50 /* DSShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSShopCell.xib; sourceTree = "<group>"; };
+		6D0099EE1E8B29F3001E5A50 /* defaultPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultPic.png; path = Images/defaultPic.png; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +129,7 @@
 		6D0099901E8022A2001E5A50 /* Mimimishnosty */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099D71E87FBEB001E5A50 /* Models */,
 				6D0099C01E8734F2001E5A50 /* TabViewController */,
 				6D0099B21E803131001E5A50 /* Managers */,
 				6D0099AE1E8029E5001E5A50 /* StartViewController */,
@@ -127,6 +144,7 @@
 				6D0099A51E8022A3001E5A50 /* Info.plist */,
 				6D00999D1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld */,
 				6D0099911E8022A2001E5A50 /* Supporting Files */,
+				6D0099DF1E88086A001E5A50 /* Supporting classes */,
 			);
 			path = Mimimishnosty;
 			sourceTree = "<group>";
@@ -142,6 +160,7 @@
 		6D0099AB1E8025E2001E5A50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099EE1E8B29F3001E5A50 /* defaultPic.png */,
 				6D0099C41E87554C001E5A50 /* Orders_Active.png */,
 				6D0099C51E87554C001E5A50 /* Orders_Passive.png */,
 				6D0099C61E87554C001E5A50 /* Shop_Active.png */,
@@ -194,10 +213,49 @@
 		6D0099D31E87567B001E5A50 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6D0099D41E8756F7001E5A50 /* DSShopViewController.h */,
-				6D0099D51E8756F7001E5A50 /* DSShopViewController.m */,
+				6D0099E31E88DE56001E5A50 /* Shop */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6D0099D71E87FBEB001E5A50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099DB1E87FC33001E5A50 /* MarketItem */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6D0099DB1E87FC33001E5A50 /* MarketItem */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099D81E87FC20001E5A50 /* DSMarketItem.h */,
+				6D0099D91E87FC20001E5A50 /* DSMarketItem.m */,
+			);
+			name = MarketItem;
+			sourceTree = "<group>";
+		};
+		6D0099DF1E88086A001E5A50 /* Supporting classes */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099DC1E880864001E5A50 /* DSPhoto.h */,
+				6D0099DD1E880864001E5A50 /* DSPhoto.m */,
+				6D0099E01E88DA8C001E5A50 /* NSArray+DSArray.h */,
+				6D0099E11E88DA8C001E5A50 /* NSArray+DSArray.m */,
+			);
+			name = "Supporting classes";
+			sourceTree = "<group>";
+		};
+		6D0099E31E88DE56001E5A50 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099D41E8756F7001E5A50 /* DSShopViewController.h */,
+				6D0099D51E8756F7001E5A50 /* DSShopViewController.m */,
+				6D0099E41E88DE77001E5A50 /* DSShopCell.h */,
+				6D0099E51E88DE77001E5A50 /* DSShopCell.m */,
+				6D0099EC1E8B1874001E5A50 /* DSShopCell.xib */,
+			);
+			name = Shop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +324,9 @@
 				6D0099CE1E87554C001E5A50 /* Shoping_Cart_Active.png in Resources */,
 				6D0099A41E8022A3001E5A50 /* LaunchScreen.storyboard in Resources */,
 				6D0099AD1E802613001E5A50 /* Start.jpg in Resources */,
+				6D0099ED1E8B1874001E5A50 /* DSShopCell.xib in Resources */,
 				6D0099A11E8022A3001E5A50 /* Assets.xcassets in Resources */,
+				6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */,
 				6D0099CC1E87554C001E5A50 /* Shop_Active.png in Resources */,
 				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
 				6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */,
@@ -331,11 +391,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
+				6D0099E21E88DA8C001E5A50 /* NSArray+DSArray.m in Sources */,
+				6D0099DE1E880864001E5A50 /* DSPhoto.m in Sources */,
+				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
 				6D0099C31E873547001E5A50 /* DSBarViewController.m in Sources */,
 				6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */,
 				6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */,
+				6D0099E61E88DE77001E5A50 /* DSShopCell.m in Sources */,
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
 				6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,

@@ -9,12 +9,19 @@
 #import "DSVKMarket.h"
 #import <AFNetworking.h>
 #import <VKSdk.h>
+#import "NSArray+DSArray.h"
 
 NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManagerShopArrayDidChangeNotification";
 
-@interface DSVKMarket ()
+NSString *const DSMarketItemTitleKey          = @"title";
+NSString *const DSMarketItemDescriptionKey    = @"description";
+NSString *const DSMarketItemPhotosKey         = @"photos";
+NSString *const DSMarketItemPriceKey          = @"price";
+NSString *const DSMarketItemMainImageURLKey   = @"thumb_photo";
+NSString *const DSMarketItemId                = @"id";
 
-@property (strong, nonatomic) NSArray *items;
+
+@interface DSVKMarket ()
 
 @property (strong, nonatomic) NSString *groupID;
 
@@ -31,19 +38,7 @@ NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManage
     
     return self;
 }
-/*
-#pragma mark - getter
 
-- (NSArray *) items {
-    
-    if ([_items count] == 0) {
-        [self loadMarketItems];
-        
-    }
-    
-    return _items;
-}
-*/
 #pragma mark - setters
 
 -(void)setItems:(NSArray *)items {
@@ -54,6 +49,25 @@ NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManage
 
     
 }
+
+#pragma mark - methods
+
+- (NSDictionary *) itemDictionaryForId:(int32_t) itemId {
+    
+    // ПРОВЕРИТЬ!!!!
+    NSDictionary *result = nil;
+    if ([self.items count] > 0) {
+        result = [self.items objectWithValue:@(itemId)
+                                                    forKey:DSMarketItemId];
+    }
+    
+    if (result) {
+        return result;
+    }
+    
+    return nil;
+}
+
 
 -(BOOL)loadMarketItems {
     
@@ -85,7 +99,7 @@ NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManage
                         NSArray *items = [response objectForKey:@"items"];
                         self.items = [NSArray arrayWithArray:items];
                         
-                        NSLog(@"\n%@", response);
+                        NSLog(@"\n%@", self.items);
                         NSLog(@"\n\nItems loaded");
                         result = YES;
                         
