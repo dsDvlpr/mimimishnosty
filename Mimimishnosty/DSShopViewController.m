@@ -35,8 +35,13 @@ static NSString *identifier = @"shopCell";
     [self.tableView registerNib:nib
          forCellReuseIdentifier:identifier];
     
-    //[self.tableView registerClass:[DSShopCell class]           forCellReuseIdentifier:identifier];
-
+    UIColor *color = [UIColor colorWithRed:223.f/256.f
+                                     green:81.f/256.f
+                                      blue:88.f/256.f
+                                     alpha:1.f];
+    
+    self.tableView.backgroundColor = color;
+    
 }
 
 - (void)didReceiveMemoryWarning {

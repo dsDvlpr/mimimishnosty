@@ -18,72 +18,72 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-Mf-Bkh">
-                        <rect key="frame" x="0.0" y="8" width="375" height="192"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-Mf-Bkh">
+                        <rect key="frame" x="8" y="8" width="359" height="183"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-b0-Etq">
-                                <rect key="frame" x="188" y="8" width="179" height="91"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPic.png" translatesAutoresizingMaskIntoConstraints="NO" id="HsQ-Ks-85S">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="183"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="T1I-ER-jtm"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7k-Zr-hcU">
-                                <rect key="frame" x="188" y="153" width="187" height="39"/>
-                                <color key="backgroundColor" red="0.48627450979999998" green="0.72156862749999995" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="ezD-tO-qW1"/>
-                                </constraints>
-                                <state key="normal" title="В корзину">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionBuyItem:" destination="TT1-E4-Zsx" eventType="touchUpInside" id="oY6-uh-trx"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-xR-QNR">
-                                <rect key="frame" x="188" y="107" width="179" height="38"/>
-                                <color key="backgroundColor" red="0.87450980389999999" green="0.31764705879999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9vT-YF-bcT">
+                                <rect key="frame" x="188" y="0.0" width="163" height="183"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Держатель для соски Аделина" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-b0-Etq">
+                                        <rect key="frame" x="0.0" y="0.0" width="163" height="116.5"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-xR-QNR">
+                                        <rect key="frame" x="0.0" y="124.5" width="163" height="20.5"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7k-Zr-hcU">
+                                        <rect key="frame" x="0.0" y="153" width="163" height="30"/>
+                                        <color key="backgroundColor" red="0.48627450979999998" green="0.72156862749999995" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="В корзину">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionBuyItem:" destination="TT1-E4-Zsx" eventType="touchUpInside" id="oY6-uh-trx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.59999999999999998" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.69684806030000002" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="HsQ-Ks-85S" firstAttribute="leading" secondItem="DRi-Mf-Bkh" secondAttribute="leading" id="1x7-Mw-ysI"/>
-                            <constraint firstItem="7x7-b0-Etq" firstAttribute="leading" secondItem="HsQ-Ks-85S" secondAttribute="trailing" constant="8" id="35n-q0-7uj"/>
-                            <constraint firstItem="V7k-Zr-hcU" firstAttribute="top" secondItem="S5l-xR-QNR" secondAttribute="bottom" constant="8" id="3dC-cq-oEB"/>
-                            <constraint firstItem="7x7-b0-Etq" firstAttribute="top" secondItem="DRi-Mf-Bkh" secondAttribute="top" constant="8" id="5co-rq-3pL"/>
-                            <constraint firstAttribute="bottom" secondItem="V7k-Zr-hcU" secondAttribute="bottom" id="EGh-DC-u05"/>
-                            <constraint firstAttribute="trailing" secondItem="V7k-Zr-hcU" secondAttribute="trailing" id="Eva-vZ-LBY"/>
-                            <constraint firstItem="HsQ-Ks-85S" firstAttribute="height" secondItem="DRi-Mf-Bkh" secondAttribute="height" id="Fst-ZN-MSr"/>
-                            <constraint firstItem="S5l-xR-QNR" firstAttribute="leading" secondItem="HsQ-Ks-85S" secondAttribute="trailing" constant="8" id="HGI-eA-5Nm"/>
-                            <constraint firstAttribute="trailing" secondItem="7x7-b0-Etq" secondAttribute="trailing" constant="8" id="Lfw-Hw-GDi"/>
-                            <constraint firstItem="S5l-xR-QNR" firstAttribute="top" secondItem="7x7-b0-Etq" secondAttribute="bottom" constant="8" id="RoV-Fp-35M"/>
-                            <constraint firstItem="V7k-Zr-hcU" firstAttribute="leading" secondItem="HsQ-Ks-85S" secondAttribute="trailing" constant="8" id="STr-dg-Pbn"/>
-                            <constraint firstAttribute="bottom" secondItem="HsQ-Ks-85S" secondAttribute="bottom" id="bSe-gb-sM7"/>
-                            <constraint firstItem="7x7-b0-Etq" firstAttribute="leading" secondItem="HsQ-Ks-85S" secondAttribute="trailing" constant="8" id="h59-92-qE9"/>
-                            <constraint firstAttribute="trailing" secondItem="S5l-xR-QNR" secondAttribute="trailing" constant="8" id="pcF-0i-1Sd"/>
-                            <constraint firstItem="HsQ-Ks-85S" firstAttribute="top" secondItem="DRi-Mf-Bkh" secondAttribute="top" id="q9z-0d-dpS"/>
-                            <constraint firstItem="V7k-Zr-hcU" firstAttribute="top" secondItem="S5l-xR-QNR" secondAttribute="bottom" constant="8" id="yFM-bN-7N3"/>
+                            <constraint firstItem="HsQ-Ks-85S" firstAttribute="leading" secondItem="DRi-Mf-Bkh" secondAttribute="leading" id="767-TR-TI1"/>
+                            <constraint firstItem="HsQ-Ks-85S" firstAttribute="top" secondItem="DRi-Mf-Bkh" secondAttribute="top" id="ACG-Te-asM"/>
+                            <constraint firstAttribute="bottom" secondItem="HsQ-Ks-85S" secondAttribute="bottom" id="Bev-XG-eTR"/>
+                            <constraint firstItem="9vT-YF-bcT" firstAttribute="top" secondItem="DRi-Mf-Bkh" secondAttribute="top" id="HHZ-dT-Fyv"/>
+                            <constraint firstAttribute="bottom" secondItem="9vT-YF-bcT" secondAttribute="bottom" id="bEC-bq-X2V"/>
+                            <constraint firstItem="9vT-YF-bcT" firstAttribute="leading" secondItem="HsQ-Ks-85S" secondAttribute="trailing" constant="8" symbolic="YES" id="pKh-tn-5k2"/>
+                            <constraint firstAttribute="trailing" secondItem="9vT-YF-bcT" secondAttribute="trailing" constant="8" id="wJR-wf-J9s"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="DRi-Mf-Bkh" firstAttribute="top" secondItem="C4D-Ah-Qkt" secondAttribute="top" constant="8" id="DK5-1I-jPM"/>
-                    <constraint firstAttribute="bottom" secondItem="DRi-Mf-Bkh" secondAttribute="bottom" constant="8" id="Njn-4P-9fV"/>
-                    <constraint firstItem="DRi-Mf-Bkh" firstAttribute="leading" secondItem="C4D-Ah-Qkt" secondAttribute="leading" constant="8" id="qnB-wz-8TT"/>
-                    <constraint firstAttribute="trailing" secondItem="DRi-Mf-Bkh" secondAttribute="trailing" constant="8" id="s1p-wC-cX1"/>
+                    <constraint firstAttribute="bottom" secondItem="DRi-Mf-Bkh" secondAttribute="bottom" constant="8" id="ANk-EL-byb"/>
+                    <constraint firstItem="DRi-Mf-Bkh" firstAttribute="top" secondItem="C4D-Ah-Qkt" secondAttribute="top" constant="8" id="dZx-2I-59b"/>
+                    <constraint firstAttribute="trailing" secondItem="DRi-Mf-Bkh" secondAttribute="trailing" constant="8" id="tgi-Vt-KlL"/>
+                    <constraint firstItem="DRi-Mf-Bkh" firstAttribute="leading" secondItem="C4D-Ah-Qkt" secondAttribute="leading" constant="8" id="wlD-g0-8fp"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="itemImageView" destination="HsQ-Ks-85S" id="xAi-F3-3tY"/>
                 <outlet property="priceLabel" destination="S5l-xR-QNR" id="enQ-uX-zQb"/>

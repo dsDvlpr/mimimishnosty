@@ -18,6 +18,7 @@ NSString *const DSShopItemBuyNotification = @"DSShopItemBuyNotification";
 @interface DSItemViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) NSIndexPath *nameTextFieldIndexPath;
+@property (strong, nonatomic) DSPhotoViewerController *photoViewerController;
 
 @end
 
@@ -38,6 +39,12 @@ NSInteger imageRow = 0;
         self.priceLabel.text = [[self.item objectForKey:DSMarketItemPriceKey] objectForKey:@"text"];
         self.descriptionLabel.text = [self.item objectForKey:DSMarketItemDescriptionKey];
         
+        NSArray *photoURLStrings = [self photoURLStringsFromItem:self.item];
+        self.photoViewerController =
+        [[DSPhotoViewerController alloc] initWithPhotosURLs:photoURLStrings
+                                           inViewController:self
+                                               andImageView:self.mainImageView];
+
         self.nameTextField.delegate = self;
     }
 
@@ -78,6 +85,26 @@ NSInteger imageRow = 0;
     [self.nameTextField resignFirstResponder];
 }
 
+#pragma mark - Methods
+
+- (NSArray *) photoURLStringsFromItem:(NSDictionary *) item {
+    
+    NSMutableArray *photoURLStrings = [NSMutableArray array];
+    
+    static NSString *photosKey = @"photos";
+    static NSString *URLStringKey = @"photo_1280";
+    NSArray *photoDictionaries = [item objectForKey:photosKey];
+    
+    for (NSDictionary *photoDictionary in photoDictionaries) {
+        
+        NSString *URLString = [photoDictionary objectForKey:URLStringKey];
+        if (URLString) {
+            [photoURLStrings addObject:URLString];
+        }
+    }
+    
+    return [NSArray arrayWithArray:photoURLStrings];
+}
 
 /*
 #pragma mark - Navigation
