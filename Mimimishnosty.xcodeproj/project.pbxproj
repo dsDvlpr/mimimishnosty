@@ -32,6 +32,8 @@
 		6D0099E61E88DE77001E5A50 /* DSShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099E51E88DE77001E5A50 /* DSShopCell.m */; };
 		6D0099ED1E8B1874001E5A50 /* DSShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099EC1E8B1874001E5A50 /* DSShopCell.xib */; };
 		6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099EE1E8B29F3001E5A50 /* defaultPic.png */; };
+		6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099F71E8C216A001E5A50 /* DSItemViewController.m */; };
+		6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,10 @@
 		6D0099E51E88DE77001E5A50 /* DSShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShopCell.m; sourceTree = "<group>"; };
 		6D0099EC1E8B1874001E5A50 /* DSShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSShopCell.xib; sourceTree = "<group>"; };
 		6D0099EE1E8B29F3001E5A50 /* defaultPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultPic.png; path = Images/defaultPic.png; sourceTree = "<group>"; };
+		6D0099F61E8C216A001E5A50 /* DSItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSItemViewController.h; sourceTree = "<group>"; };
+		6D0099F71E8C216A001E5A50 /* DSItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSItemViewController.m; sourceTree = "<group>"; };
+		6D0099FB1E8DEDDC001E5A50 /* DSPhotoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPhotoViewerController.h; sourceTree = "<group>"; };
+		6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPhotoViewerController.m; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				6D0099E31E88DE56001E5A50 /* Shop */,
+				6D0099F31E8C185B001E5A50 /* Item */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -238,6 +245,8 @@
 		6D0099DF1E88086A001E5A50 /* Supporting classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099FB1E8DEDDC001E5A50 /* DSPhotoViewerController.h */,
+				6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */,
 				6D0099DC1E880864001E5A50 /* DSPhoto.h */,
 				6D0099DD1E880864001E5A50 /* DSPhoto.m */,
 				6D0099E01E88DA8C001E5A50 /* NSArray+DSArray.h */,
@@ -256,6 +265,15 @@
 				6D0099EC1E8B1874001E5A50 /* DSShopCell.xib */,
 			);
 			name = Shop;
+			sourceTree = "<group>";
+		};
+		6D0099F31E8C185B001E5A50 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099F61E8C216A001E5A50 /* DSItemViewController.h */,
+				6D0099F71E8C216A001E5A50 /* DSItemViewController.m */,
+			);
+			name = Item;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +411,7 @@
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
 				6D0099E21E88DA8C001E5A50 /* NSArray+DSArray.m in Sources */,
 				6D0099DE1E880864001E5A50 /* DSPhoto.m in Sources */,
+				6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */,
 				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
@@ -402,6 +421,7 @@
 				6D0099E61E88DE77001E5A50 /* DSShopCell.m in Sources */,
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
 				6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */,
+				6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

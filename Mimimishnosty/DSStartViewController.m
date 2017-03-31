@@ -69,6 +69,7 @@
 }
 - (void) handleItemsLoadedNotification:(NSNotification*) notification {
     
+    
     DSBarViewController *barVC = [[DSBarViewController alloc] init];
     
     [self presentViewController:barVC animated:YES completion:^{

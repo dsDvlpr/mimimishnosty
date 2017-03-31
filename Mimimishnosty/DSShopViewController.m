@@ -10,6 +10,7 @@
 #import "DSShopCell.h"
 #import "DSVKManager.h"
 #import "UIImageView+AFNetworking.h"
+#import "DSItemViewController.h"
 
 @interface DSShopViewController ()
 
@@ -43,6 +44,16 @@ static NSString *identifier = @"shopCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -55,7 +66,6 @@ static NSString *identifier = @"shopCell";
     NSLog(@"\n\nNumber of rows:%ld",[self.items count]);
     return [self.items count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -99,6 +109,23 @@ static NSString *identifier = @"shopCell";
     return 200.f;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    UIStoryboard *storyboard =
+    [UIStoryboard storyboardWithName:@"Main"
+                              bundle:[NSBundle mainBundle]];
+
+    DSItemViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"DSItemViewController"];
+
+    NSDictionary *item = [self.items objectAtIndex:indexPath.row];
+    vc.item = item;
+    
+    [self.navigationController pushViewController:vc
+                                         animated:YES];
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,14 +160,15 @@ static NSString *identifier = @"shopCell";
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    DSItemViewController *vc = [segue destinationViewController];
+    //vc.itemId =
+    
 }
-*/
+
 
 @end

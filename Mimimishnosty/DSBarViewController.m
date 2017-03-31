@@ -25,6 +25,8 @@
     
     
     DSShopViewController *shopVC = [[DSShopViewController alloc] init];
+    UINavigationController *shopNavVC = [[UINavigationController alloc]initWithRootViewController:shopVC];
+    
     UIImage *shopActiveImage = [UIImage imageNamed:@"Shop_Active.png"];
     UIImage *shopPassiveImage = [UIImage imageNamed:@"Shop_Passive.png"];
     NSAttributedString *shopTitle = [[NSAttributedString alloc] initWithString:@"Магазин"];
@@ -32,7 +34,7 @@
     [self createTabBarItemWithDeselectedImage:shopPassiveImage
                                 selectedImage:shopActiveImage
                                     itemTitle:shopTitle
-                            forViewController:shopVC];
+                            forViewController:shopNavVC];
     
     //__________________________________________________________________
     //TabBarController
@@ -42,7 +44,7 @@
         self.tabBarController = [[BATabBarController alloc] init];
     }
     
-    [self.tabBarController setSelectedViewController:shopVC animated:YES];
+    [self.tabBarController setSelectedViewController:shopNavVC animated:YES];
     self.tabBarController.delegate = self;
     self.tabBarController.tabBarItemStrokeColor = [UIColor whiteColor];
     
