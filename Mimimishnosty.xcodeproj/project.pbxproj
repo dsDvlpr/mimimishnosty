@@ -34,6 +34,7 @@
 		6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0099EE1E8B29F3001E5A50 /* defaultPic.png */; };
 		6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099F71E8C216A001E5A50 /* DSItemViewController.m */; };
 		6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */; };
+		6D009A011E8F3B80001E5A50 /* DSCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A001E8F3B80001E5A50 /* DSCoreDataManager.m */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		6D0099F71E8C216A001E5A50 /* DSItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSItemViewController.m; sourceTree = "<group>"; };
 		6D0099FB1E8DEDDC001E5A50 /* DSPhotoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPhotoViewerController.h; sourceTree = "<group>"; };
 		6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPhotoViewerController.m; sourceTree = "<group>"; };
+		6D0099FF1E8F3B80001E5A50 /* DSCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCoreDataManager.h; sourceTree = "<group>"; };
+		6D009A001E8F3B80001E5A50 /* DSCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCoreDataManager.m; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,9 +193,8 @@
 		6D0099B21E803131001E5A50 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				6D0099BC1E809595001E5A50 /* DSVKMarket */,
-				6D0099B91E8032D1001E5A50 /* DSVKManager.h */,
-				6D0099BA1E8032D1001E5A50 /* DSVKManager.m */,
+				6D0099FE1E8F3B24001E5A50 /* DSVKManager */,
+				6D009A021E8F3B92001E5A50 /* DSCoreDataManager */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -274,6 +276,25 @@
 				6D0099F71E8C216A001E5A50 /* DSItemViewController.m */,
 			);
 			name = Item;
+			sourceTree = "<group>";
+		};
+		6D0099FE1E8F3B24001E5A50 /* DSVKManager */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099BC1E809595001E5A50 /* DSVKMarket */,
+				6D0099B91E8032D1001E5A50 /* DSVKManager.h */,
+				6D0099BA1E8032D1001E5A50 /* DSVKManager.m */,
+			);
+			name = DSVKManager;
+			sourceTree = "<group>";
+		};
+		6D009A021E8F3B92001E5A50 /* DSCoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				6D0099FF1E8F3B80001E5A50 /* DSCoreDataManager.h */,
+				6D009A001E8F3B80001E5A50 /* DSCoreDataManager.m */,
+			);
+			name = DSCoreDataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +432,7 @@
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
 				6D0099E21E88DA8C001E5A50 /* NSArray+DSArray.m in Sources */,
 				6D0099DE1E880864001E5A50 /* DSPhoto.m in Sources */,
+				6D009A011E8F3B80001E5A50 /* DSCoreDataManager.m in Sources */,
 				6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */,
 				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
