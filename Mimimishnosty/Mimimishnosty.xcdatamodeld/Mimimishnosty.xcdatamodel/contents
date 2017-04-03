@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1217" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="DSAdress" representedClassName="DSAdress_MO" syncable="YES" codeGenerationType="class">
+        <attribute name="building" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="house" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DSOrder" inverseName="adress" inverseEntity="DSOrder" syncable="YES"/>
+    </entity>
+    <entity name="DSItem" representedClassName="DSItem_MO" syncable="YES" codeGenerationType="class">
+        <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DSOrder" inverseName="items" inverseEntity="DSOrder" syncable="YES"/>
+        <relationship name="shopingCart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DSShopingCart" inverseName="items" inverseEntity="DSShopingCart" syncable="YES"/>
+    </entity>
+    <entity name="DSOrder" representedClassName="DSOrder_MO" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="delivery" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="adress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DSAdress" inverseName="order" inverseEntity="DSAdress" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DSItem" inverseName="orders" inverseEntity="DSItem" syncable="YES"/>
+    </entity>
+    <entity name="DSShopingCart" representedClassName="DSShopingCart_MO" syncable="YES" codeGenerationType="class">
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DSItem" inverseName="shopingCart" inverseEntity="DSItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DSItem" positionX="-27" positionY="18" width="128" height="148"/>
+        <element name="DSShopingCart" positionX="349" positionY="171" width="128" height="58"/>
+        <element name="DSOrder" positionX="349" positionY="33" width="128" height="118"/>
+        <element name="DSAdress" positionX="-27" positionY="-135" width="128" height="133"/>
+    </elements>
 </model>

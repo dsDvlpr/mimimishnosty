@@ -11,6 +11,7 @@
 #import "NYTPhotosViewController.h"
 #import "DSPhotoViewerController.h"
 #import "DSVKManager.h"
+#import "DSMarket.h"
 
 
 NSString *const DSShopItemBuyNotification = @"DSShopItemBuyNotification";
@@ -35,9 +36,9 @@ NSInteger imageRow = 0;
     
     if (self.item) {
         
-        self.titleLabel.text = [self.item objectForKey:DSMarketItemTitleKey];
-        self.priceLabel.text = [[self.item objectForKey:DSMarketItemPriceKey] objectForKey:@"text"];
-        self.descriptionLabel.text = [self.item objectForKey:DSMarketItemDescriptionKey];
+        self.titleLabel.text = [self.item objectForKey:DSVKMarketItemTitleKey];
+        self.priceLabel.text = [[self.item objectForKey:DSVKMarketItemPriceKey] objectForKey:@"text"];
+        self.descriptionLabel.text = [self.item objectForKey:DSVKMarketItemDescriptionKey];
         
         NSArray *photoURLStrings = [self photoURLStringsFromItem:self.item];
         self.photoViewerController =
@@ -127,5 +128,9 @@ NSInteger imageRow = 0;
 }
 
 - (IBAction)actionBuyShopItem:(UIButton *)sender {
+    
+    DSMarket *market = [[DSMarket alloc]init];
+    [market addItemToShopingCart:self.item];
+    
 }
 @end

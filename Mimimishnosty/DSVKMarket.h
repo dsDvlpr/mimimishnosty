@@ -10,12 +10,12 @@
 
 extern NSString *const DSMarketManagerShopArrayDidChangeNotification;
 
-extern NSString *const DSMarketItemTitleKey;
-extern NSString *const DSMarketItemDescriptionKey;
-extern NSString *const DSMarketItemPhotosKey;
-extern NSString *const DSMarketItemPriceKey;
-extern NSString *const DSMarketItemMainImageURLKey;
-extern NSString *const DSMarketItemId;
+extern NSString *const DSVKMarketItemTitleKey;
+extern NSString *const DSVKMarketItemDescriptionKey;
+extern NSString *const DSVKMarketItemPhotosKey;
+extern NSString *const DSVKMarketItemPriceKey;
+extern NSString *const DSVKMarketItemMainImageURLKey;
+extern NSString *const DSVKMarketItemIdKey;
 
 
 @interface DSVKMarket : NSObject

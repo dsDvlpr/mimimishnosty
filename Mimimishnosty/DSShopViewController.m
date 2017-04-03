@@ -83,12 +83,12 @@ static NSString *identifier = @"shopCell";
     
     NSDictionary *item = [self.items objectAtIndex:indexPath.row];
     
-    cell.titleLabel.text = [item valueForKey:DSMarketItemTitleKey];
+    cell.titleLabel.text = [item valueForKey:DSVKMarketItemTitleKey];
     
-    NSDictionary *priceDictionary = [item valueForKey:DSMarketItemPriceKey];
+    NSDictionary *priceDictionary = [item valueForKey:DSVKMarketItemPriceKey];
     cell.priceLabel.text = [priceDictionary valueForKey:@"text"];
     
-    NSURL *mainImageURL = [NSURL URLWithString:[item valueForKey:DSMarketItemMainImageURLKey]];
+    NSURL *mainImageURL = [NSURL URLWithString:[item valueForKey:DSVKMarketItemMainImageURLKey]];
     NSURLRequest *request = [NSURLRequest requestWithURL:mainImageURL];
     __weak DSShopCell *weakCell = cell;
     [cell.itemImageView setImageWithURLRequest:request
@@ -170,9 +170,7 @@ static NSString *identifier = @"shopCell";
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DSItemViewController *vc = [segue destinationViewController];
-    //vc.itemId =
-    
+        
 }
 
 

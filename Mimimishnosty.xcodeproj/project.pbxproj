@@ -35,6 +35,10 @@
 		6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099F71E8C216A001E5A50 /* DSItemViewController.m */; };
 		6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */; };
 		6D009A011E8F3B80001E5A50 /* DSCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A001E8F3B80001E5A50 /* DSCoreDataManager.m */; };
+		6D009A051E91305B001E5A50 /* DSMarket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A041E91305B001E5A50 /* DSMarket.m */; };
+		6D009A091E913B7E001E5A50 /* DSShopingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A081E913B7E001E5A50 /* DSShopingCart.m */; };
+		6D009A0D1E91420F001E5A50 /* DSItemMOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A0C1E91420F001E5A50 /* DSItemMOManager.m */; };
+		6D009A111E914684001E5A50 /* DSOrderMOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A101E914684001E5A50 /* DSOrderMOManager.m */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +88,14 @@
 		6D0099FC1E8DEDDC001E5A50 /* DSPhotoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPhotoViewerController.m; sourceTree = "<group>"; };
 		6D0099FF1E8F3B80001E5A50 /* DSCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCoreDataManager.h; sourceTree = "<group>"; };
 		6D009A001E8F3B80001E5A50 /* DSCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCoreDataManager.m; sourceTree = "<group>"; };
+		6D009A031E91305B001E5A50 /* DSMarket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMarket.h; sourceTree = "<group>"; };
+		6D009A041E91305B001E5A50 /* DSMarket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMarket.m; sourceTree = "<group>"; };
+		6D009A071E913B7E001E5A50 /* DSShopingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSShopingCart.h; sourceTree = "<group>"; };
+		6D009A081E913B7E001E5A50 /* DSShopingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShopingCart.m; sourceTree = "<group>"; };
+		6D009A0B1E91420F001E5A50 /* DSItemMOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSItemMOManager.h; sourceTree = "<group>"; };
+		6D009A0C1E91420F001E5A50 /* DSItemMOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSItemMOManager.m; sourceTree = "<group>"; };
+		6D009A0F1E914684001E5A50 /* DSOrderMOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSOrderMOManager.h; sourceTree = "<group>"; };
+		6D009A101E914684001E5A50 /* DSOrderMOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSOrderMOManager.m; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +207,7 @@
 			children = (
 				6D0099FE1E8F3B24001E5A50 /* DSVKManager */,
 				6D009A021E8F3B92001E5A50 /* DSCoreDataManager */,
+				6D009A061E913065001E5A50 /* DSMarket */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -295,6 +308,45 @@
 				6D009A001E8F3B80001E5A50 /* DSCoreDataManager.m */,
 			);
 			name = DSCoreDataManager;
+			sourceTree = "<group>";
+		};
+		6D009A061E913065001E5A50 /* DSMarket */ = {
+			isa = PBXGroup;
+			children = (
+				6D009A031E91305B001E5A50 /* DSMarket.h */,
+				6D009A041E91305B001E5A50 /* DSMarket.m */,
+				6D009A0A1E913B86001E5A50 /* DSShopingCart */,
+				6D009A0E1E91421F001E5A50 /* DSItemMOManager */,
+				6D009A121E91468E001E5A50 /* DSOrderMOManager */,
+			);
+			name = DSMarket;
+			sourceTree = "<group>";
+		};
+		6D009A0A1E913B86001E5A50 /* DSShopingCart */ = {
+			isa = PBXGroup;
+			children = (
+				6D009A071E913B7E001E5A50 /* DSShopingCart.h */,
+				6D009A081E913B7E001E5A50 /* DSShopingCart.m */,
+			);
+			name = DSShopingCart;
+			sourceTree = "<group>";
+		};
+		6D009A0E1E91421F001E5A50 /* DSItemMOManager */ = {
+			isa = PBXGroup;
+			children = (
+				6D009A0B1E91420F001E5A50 /* DSItemMOManager.h */,
+				6D009A0C1E91420F001E5A50 /* DSItemMOManager.m */,
+			);
+			name = DSItemMOManager;
+			sourceTree = "<group>";
+		};
+		6D009A121E91468E001E5A50 /* DSOrderMOManager */ = {
+			isa = PBXGroup;
+			children = (
+				6D009A0F1E914684001E5A50 /* DSOrderMOManager.h */,
+				6D009A101E914684001E5A50 /* DSOrderMOManager.m */,
+			);
+			name = DSOrderMOManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,11 +488,15 @@
 				6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */,
 				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
+				6D009A091E913B7E001E5A50 /* DSShopingCart.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
 				6D0099C31E873547001E5A50 /* DSBarViewController.m in Sources */,
+				6D009A0D1E91420F001E5A50 /* DSItemMOManager.m in Sources */,
 				6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */,
 				6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */,
+				6D009A051E91305B001E5A50 /* DSMarket.m in Sources */,
 				6D0099E61E88DE77001E5A50 /* DSShopCell.m in Sources */,
+				6D009A111E914684001E5A50 /* DSOrderMOManager.m in Sources */,
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
 				6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */,
 				6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */,

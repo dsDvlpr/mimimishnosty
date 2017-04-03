@@ -13,12 +13,12 @@
 
 NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManagerShopArrayDidChangeNotification";
 
-NSString *const DSMarketItemTitleKey          = @"title";
-NSString *const DSMarketItemDescriptionKey    = @"description";
-NSString *const DSMarketItemPhotosKey         = @"photos";
-NSString *const DSMarketItemPriceKey          = @"price";
-NSString *const DSMarketItemMainImageURLKey   = @"thumb_photo";
-NSString *const DSMarketItemId                = @"id";
+NSString *const DSVKMarketItemTitleKey          = @"title";
+NSString *const DSVKMarketItemDescriptionKey    = @"description";
+NSString *const DSVKMarketItemPhotosKey         = @"photos";
+NSString *const DSVKMarketItemPriceKey          = @"price";
+NSString *const DSVKMarketItemMainImageURLKey   = @"thumb_photo";
+NSString *const DSVKMarketItemIdKey                = @"id";
 
 
 @interface DSVKMarket ()
@@ -58,7 +58,7 @@ NSString *const DSMarketItemId                = @"id";
     NSDictionary *result = nil;
     if ([self.items count] > 0) {
         result = [self.items objectWithValue:@(itemId)
-                                                    forKey:DSMarketItemId];
+                                                    forKey:DSVKMarketItemIdKey];
     }
     
     if (result) {
