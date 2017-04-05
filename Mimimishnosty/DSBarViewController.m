@@ -11,6 +11,7 @@
 #import "BATabBarItem.h"
 #import "BATabBarBadge.h"
 #import "DSShopViewController.h"
+#import "DSShopingCartViewController.h"
 
 @interface DSBarViewController () <BATabBarControllerDelegate>
 
@@ -24,6 +25,8 @@
     [super viewDidLoad];
     
     
+    // Shop
+    
     DSShopViewController *shopVC = [[DSShopViewController alloc] init];
     UINavigationController *shopNavVC = [[UINavigationController alloc]initWithRootViewController:shopVC];
     
@@ -35,6 +38,20 @@
                                 selectedImage:shopActiveImage
                                     itemTitle:shopTitle
                             forViewController:shopNavVC];
+    
+    // Shoping Cart
+    DSShopingCartViewController *shopingCartVC = [[DSShopingCartViewController alloc] init];
+    UINavigationController *shopingCartNavVC = [[UINavigationController alloc] initWithRootViewController:shopingCartVC];
+    
+    UIImage *shopingCartSelectedImage = [UIImage imageNamed:@"Shoping_Cart_Active.png"];
+    UIImage *shopingCartDeselectedImage = [UIImage imageNamed:@"Shoping_Cart_Passive.png"];
+
+    NSAttributedString *shopingCartTitle = [[NSAttributedString alloc] initWithString:@"Корзина"];
+    
+    [self createTabBarItemWithDeselectedImage:shopingCartDeselectedImage
+                                selectedImage:shopingCartSelectedImage
+                                    itemTitle:shopingCartTitle
+                            forViewController:shopingCartNavVC];
     
     //__________________________________________________________________
     //TabBarController
