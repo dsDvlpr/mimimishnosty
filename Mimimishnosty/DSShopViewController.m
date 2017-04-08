@@ -124,8 +124,8 @@ static NSString *identifier = @"shopCell";
 
     DSItemViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"DSItemViewController"];
 
-    NSDictionary *item = [self.items objectAtIndex:indexPath.row];
-    vc.item = item;
+    NSDictionary *itemInfo = [self.items objectAtIndex:indexPath.row];
+    vc.itemInfo = itemInfo;
     
     [self.navigationController pushViewController:vc
                                          animated:YES];

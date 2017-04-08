@@ -12,7 +12,7 @@ extern NSString *const DSShopItemBuyNotification;
 
 @interface DSItemViewController : UITableViewController
 
-@property (strong, nonatomic) NSDictionary *item;
+@property (strong, nonatomic) NSDictionary *itemInfo;
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

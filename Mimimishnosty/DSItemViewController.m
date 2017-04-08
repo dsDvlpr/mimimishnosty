@@ -34,13 +34,13 @@ NSInteger imageRow = 0;
     [super viewDidLoad];
     
     
-    if (self.item) {
+    if (self.itemInfo) {
         
-        self.titleLabel.text = [self.item objectForKey:DSVKMarketItemTitleKey];
-        self.priceLabel.text = [[self.item objectForKey:DSVKMarketItemPriceKey] objectForKey:@"text"];
-        self.descriptionLabel.text = [self.item objectForKey:DSVKMarketItemDescriptionKey];
+        self.titleLabel.text = [self.itemInfo objectForKey:DSVKMarketItemTitleKey];
+        self.priceLabel.text = [[self.itemInfo objectForKey:DSVKMarketItemPriceKey] objectForKey:@"text"];
+        self.descriptionLabel.text = [self.itemInfo objectForKey:DSVKMarketItemDescriptionKey];
         
-        NSArray *photoURLStrings = [self photoURLStringsFromItem:self.item];
+        NSArray *photoURLStrings = [self photoURLStringsFromItem:self.itemInfo];
         self.photoViewerController =
         [[DSPhotoViewerController alloc] initWithPhotosURLs:photoURLStrings
                                            inViewController:self
@@ -130,7 +130,7 @@ NSInteger imageRow = 0;
 - (IBAction)actionBuyShopItem:(UIButton *)sender {
     
     DSMarket *market = [[DSMarket alloc]init];
-    [market addItemToShopingCart:self.item];
+    [market addItemToShopingCart:self.itemInfo];
     
 }
 @end

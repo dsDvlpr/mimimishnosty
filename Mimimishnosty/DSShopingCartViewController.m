@@ -10,6 +10,11 @@
 #import "DSCoreDataManager.h"
 #import "DSShopingCartCell.h"
 #import "DSCoreDataManager.h"
+#import "DSVKManager.h"
+#import "DSItemViewController.h"
+#import "NSArray+DSArray.h"
+#import <AFNetworking.h>
+#import "UIImageView+AFNetworking.h"
 #import "DSItem_MO+CoreDataClass.h"
 
 @interface DSShopingCartViewController () <NSFetchedResultsControllerDelegate>
@@ -30,8 +35,17 @@ static NSString *identifier = @"shopingCartCell";
                                 bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib
          forCellReuseIdentifier:identifier];
-    
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,7 +138,6 @@ static NSString *identifier = @"shopingCartCell";
 
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DSShopingCartCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
@@ -134,9 +147,53 @@ static NSString *identifier = @"shopingCartCell";
     }
     
     DSItem_MO *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    int32_t itemId = item.itemId;
+    
+    DSVKManager *vkManager = [DSVKManager sharedManager];
+    NSDictionary *itemInfo = [[vkManager vkMarket] itemInfoDictionaryForId:itemId];
+    NSString *photoURLString = [itemInfo objectForKey:DSVKMarketItemMainImageURLKey];
+    NSURL *imageURL = [NSURL URLWithString:photoURLString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+    __weak DSShopingCartCell *weakCell = cell;
+    [cell.mainImageView setImageWithURLRequest:request
+                              placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
+                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                           
+                                           weakCell.mainImageView.image = image;
+                                           [weakCell layoutSubviews];
+                                           
+                                       } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                           ;
+                                       }];
+
     cell.titleLabel.text = item.title;
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        [self.tableView reloadData];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // The table view should not be re-orderable.
+    return NO;
 }
 
 #pragma mark - UITableViewDelegate
@@ -144,6 +201,24 @@ static NSString *identifier = @"shopingCartCell";
     
     return 160.f;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    UIStoryboard *storyboard =
+    [UIStoryboard storyboardWithName:@"Main"
+                              bundle:[NSBundle mainBundle]];
+    
+    DSItemViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"DSItemViewController"];
+    DSItem_MO *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    int32_t itemId = item.itemId;
+
+    NSDictionary *itemInfo = [[[DSVKManager sharedManager]vkMarket] itemInfoDictionaryForId:itemId];
+    
+    vc.itemInfo = itemInfo;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

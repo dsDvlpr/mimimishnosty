@@ -24,6 +24,6 @@ extern NSString *const DSVKMarketItemIdKey;
 
 - (instancetype)initWithGroupId:(NSString*) groupId;
 - (BOOL) loadMarketItems;
-- (NSDictionary *) itemDictionaryForId:(int32_t) itemId;
+- (NSDictionary *) itemInfoDictionaryForId:(int32_t) itemId;
 
 @end

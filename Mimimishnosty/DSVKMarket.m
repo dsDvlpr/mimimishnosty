@@ -52,7 +52,7 @@ NSString *const DSVKMarketItemIdKey                = @"id";
 
 #pragma mark - methods
 
-- (NSDictionary *) itemDictionaryForId:(int32_t) itemId {
+- (NSDictionary *) itemInfoDictionaryForId:(int32_t) itemId {
     
     // ПРОВЕРИТЬ!!!!
     NSDictionary *result = nil;

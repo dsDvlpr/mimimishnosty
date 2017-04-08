@@ -23,22 +23,22 @@
                         <rect key="frame" x="8" y="8" width="327" height="144"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oLi-Fw-Jhg" userLabel="Labels Stack View">
-                                <rect key="frame" x="151" y="8" width="130" height="127"/>
+                                <rect key="frame" x="151" y="8" width="130" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="Держатель для соски Аделина" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qg5-65-8c6">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="86"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="87"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LU-zz-wfv">
-                                        <rect key="frame" x="0.0" y="86" width="130" height="18"/>
+                                        <rect key="frame" x="0.0" y="87" width="130" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z3-Ns-Azb">
-                                        <rect key="frame" x="0.0" y="104" width="130" height="23"/>
+                                        <rect key="frame" x="0.0" y="105" width="130" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -46,15 +46,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0LU-zz-wfv" firstAttribute="width" secondItem="oLi-Fw-Jhg" secondAttribute="width" id="9aW-uQ-8R7"/>
-                                    <constraint firstAttribute="height" constant="127" id="EcB-YO-Md4"/>
                                     <constraint firstItem="9Z3-Ns-Azb" firstAttribute="width" secondItem="oLi-Fw-Jhg" secondAttribute="width" id="Vp3-xC-hTi"/>
-                                    <constraint firstAttribute="width" constant="130" id="nbx-Qo-hUY"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-1T-L3O">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-1T-L3O">
                                 <rect key="frame" x="0.0" y="0.0" width="143" height="143"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="lBD-C1-VOh"/>
+                                    <constraint firstAttribute="width" constant="143" id="WsJ-0b-iQc"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SzX-hF-tjG" userLabel="Buttons Stack View">
@@ -95,7 +94,7 @@
                         <constraints>
                             <constraint firstItem="oLi-Fw-Jhg" firstAttribute="leading" secondItem="oL6-1T-L3O" secondAttribute="trailing" constant="8" id="5pX-v0-D6l"/>
                             <constraint firstItem="SzX-hF-tjG" firstAttribute="top" secondItem="7jZ-Hb-3jc" secondAttribute="top" constant="8" id="Fso-Cv-dze"/>
-                            <constraint firstAttribute="bottom" secondItem="oLi-Fw-Jhg" secondAttribute="bottom" constant="9" id="NY4-hf-PVP"/>
+                            <constraint firstAttribute="bottom" secondItem="oLi-Fw-Jhg" secondAttribute="bottom" constant="8" id="NY4-hf-PVP"/>
                             <constraint firstItem="oL6-1T-L3O" firstAttribute="top" secondItem="7jZ-Hb-3jc" secondAttribute="top" id="hPX-XW-eTp"/>
                             <constraint firstAttribute="bottom" secondItem="SzX-hF-tjG" secondAttribute="bottom" constant="9" id="j4p-hF-mM3"/>
                             <constraint firstItem="oL6-1T-L3O" firstAttribute="leading" secondItem="7jZ-Hb-3jc" secondAttribute="leading" id="ktv-3e-KXs"/>
