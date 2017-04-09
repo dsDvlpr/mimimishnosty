@@ -7,6 +7,16 @@
 //
 
 #import "DSShopingCartCell.h"
+#import "DSVKManager.h"
+#import "DSShopingCart.h"
+#import "DSCoreDataManager.h"
+
+@interface DSShopingCartCell ()
+
+@property (weak, nonatomic) NSDictionary *itemInfo;
+
+
+@end
 
 @implementation DSShopingCartCell
 
@@ -22,8 +32,27 @@
 }
 
 - (IBAction)actionIncrementQuantity:(UIButton *)sender {
+    
+    self.itemMO.quantity++;
+    [[DSCoreDataManager sharedManager] saveContext];
+    
 }
 
 - (IBAction)actionDecrementQuantity:(UIButton *)sender {
+    
+    if (self.itemMO.quantity > 1) {
+    
+        self.itemMO.quantity --;
+    
+    } else {
+    
+        DSShopingCart *shopingCartManager = [[DSShopingCart alloc] init];
+        DSShopingCart_MO *defaultSC = [shopingCartManager defaultShopingCart];
+        [defaultSC removeItemsObject:self.itemMO];
+        
+    }
+
+    [[DSCoreDataManager sharedManager] saveContext];
+
 }
 @end

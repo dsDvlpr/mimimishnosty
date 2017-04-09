@@ -16,6 +16,7 @@
 #import <AFNetworking.h>
 #import "UIImageView+AFNetworking.h"
 #import "DSItem_MO+CoreDataClass.h"
+#import "DSMarket.h"
 
 @interface DSShopingCartViewController () <NSFetchedResultsControllerDelegate>
 
@@ -31,6 +32,15 @@ static NSString *identifier = @"shopingCartCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *clearBarButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"Очистить корзину"
+                                     style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(actionClearShopingCart:)];
+    
+    clearBarButton.tintColor = [UIColor redColor];
+    self.navigationItem.rightBarButtonItem = clearBarButton;
+    
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([DSShopingCartCell class])
                                 bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib
@@ -38,6 +48,7 @@ static NSString *identifier = @"shopingCartCell";
 
 }
 
+/*
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
@@ -47,6 +58,7 @@ static NSString *identifier = @"shopingCartCell";
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
+*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -146,9 +158,10 @@ static NSString *identifier = @"shopingCartCell";
         cell = [[DSShopingCartCell alloc] init];
     }
     
-    DSItem_MO *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    int32_t itemId = item.itemId;
+    DSItem_MO *itemMO = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    int32_t itemId = itemMO.itemId;
     
+    cell.itemMO = itemMO;
     DSVKManager *vkManager = [DSVKManager sharedManager];
     NSDictionary *itemInfo = [[vkManager vkMarket] itemInfoDictionaryForId:itemId];
     NSString *photoURLString = [itemInfo objectForKey:DSVKMarketItemMainImageURLKey];
@@ -166,8 +179,12 @@ static NSString *identifier = @"shopingCartCell";
                                            ;
                                        }];
 
-    cell.titleLabel.text = item.title;
-    
+    cell.titleLabel.text = itemMO.title;
+    cell.quantityLabel.text = [NSString stringWithFormat:@"%d", itemMO.quantity];
+    cell.priceLabel.text = [[itemInfo objectForKey:DSVKMarketItemPriceKey]
+                            objectForKey:@"text"];
+    int totalPrice = itemMO.quantity * itemMO.price;
+    cell.totalPriceLabel.text = [NSString stringWithFormat:@"%d руб.", totalPrice];
     return cell;
 }
 
@@ -221,6 +238,12 @@ static NSString *identifier = @"shopingCartCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - Actions
+- (void) actionClearShopingCart:(UIBarButtonItem *)sender {
+    
+    [[DSMarket sharedManager] clearShopingCart];
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

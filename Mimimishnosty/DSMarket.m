@@ -39,4 +39,18 @@
     [shopingCart addItemMOWithId:itemId];
 }
 
+- (DSItem_MO *) itemMOById:(int32_t)itemId {
+    
+    DSItemMOManager *itemManager = [[DSItemMOManager alloc] init];
+    return [itemManager itemMOByItemId:itemId];
+    
+}
+
+- (void) clearShopingCart {
+    
+    DSShopingCart *shopingCart = [[DSShopingCart alloc] init];
+    [shopingCart clearShopingCart];
+    
+}
+
 @end

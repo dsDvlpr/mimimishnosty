@@ -15,5 +15,6 @@
 - (NSArray *) allItems;
 - (void) addItemMOWithId: (int32_t)itemId;
 - (DSShopingCart_MO *)defaultShopingCart;
+- (void) clearShopingCart;
 
 @end

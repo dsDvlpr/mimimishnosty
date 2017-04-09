@@ -89,5 +89,13 @@
     }
 }
 
+- (void) clearShopingCart {
+    
+    DSShopingCart_MO *shopingCartMO = [self defaultShopingCart];
+    NSSet *allItems = shopingCartMO.items;
+    [shopingCartMO removeItems:allItems];
+    [[DSCoreDataManager sharedManager] saveContext];
+    
+}
 
 @end

@@ -42,6 +42,8 @@
 		6D009A151E92A513001E5A50 /* DSShopingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A141E92A513001E5A50 /* DSShopingCartViewController.m */; };
 		6D009A1A1E92A575001E5A50 /* DSShopingCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A181E92A575001E5A50 /* DSShopingCartCell.m */; };
 		6D009A1B1E92A575001E5A50 /* DSShopingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D009A191E92A575001E5A50 /* DSShopingCartCell.xib */; };
+		6D009A221E9A7E79001E5A50 /* DSDeliveryChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A201E9A7E79001E5A50 /* DSDeliveryChooseCell.m */; };
+		6D009A231E9A7E79001E5A50 /* DSDeliveryChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D009A211E9A7E79001E5A50 /* DSDeliveryChooseCell.xib */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +106,9 @@
 		6D009A171E92A575001E5A50 /* DSShopingCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSShopingCartCell.h; sourceTree = "<group>"; };
 		6D009A181E92A575001E5A50 /* DSShopingCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShopingCartCell.m; sourceTree = "<group>"; };
 		6D009A191E92A575001E5A50 /* DSShopingCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSShopingCartCell.xib; sourceTree = "<group>"; };
+		6D009A1F1E9A7E79001E5A50 /* DSDeliveryChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDeliveryChooseCell.h; sourceTree = "<group>"; };
+		6D009A201E9A7E79001E5A50 /* DSDeliveryChooseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDeliveryChooseCell.m; sourceTree = "<group>"; };
+		6D009A211E9A7E79001E5A50 /* DSDeliveryChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSDeliveryChooseCell.xib; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,11 +368,38 @@
 			children = (
 				6D009A131E92A513001E5A50 /* DSShopingCartViewController.h */,
 				6D009A141E92A513001E5A50 /* DSShopingCartViewController.m */,
+				6D009A261E9A7EAE001E5A50 /* Cells */,
+			);
+			name = "Shoping Cart";
+			sourceTree = "<group>";
+		};
+		6D009A241E9A7E8A001E5A50 /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				6D009A1F1E9A7E79001E5A50 /* DSDeliveryChooseCell.h */,
+				6D009A201E9A7E79001E5A50 /* DSDeliveryChooseCell.m */,
+				6D009A211E9A7E79001E5A50 /* DSDeliveryChooseCell.xib */,
+			);
+			name = Delivery;
+			sourceTree = "<group>";
+		};
+		6D009A251E9A7E9F001E5A50 /* Items */ = {
+			isa = PBXGroup;
+			children = (
 				6D009A171E92A575001E5A50 /* DSShopingCartCell.h */,
 				6D009A181E92A575001E5A50 /* DSShopingCartCell.m */,
 				6D009A191E92A575001E5A50 /* DSShopingCartCell.xib */,
 			);
-			name = "Shoping Cart";
+			name = Items;
+			sourceTree = "<group>";
+		};
+		6D009A261E9A7EAE001E5A50 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6D009A251E9A7E9F001E5A50 /* Items */,
+				6D009A241E9A7E8A001E5A50 /* Delivery */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +473,7 @@
 				6D0099A11E8022A3001E5A50 /* Assets.xcassets in Resources */,
 				6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */,
 				6D0099CC1E87554C001E5A50 /* Shop_Active.png in Resources */,
+				6D009A231E9A7E79001E5A50 /* DSDeliveryChooseCell.xib in Resources */,
 				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
 				6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */,
 				6D00999C1E8022A2001E5A50 /* Main.storyboard in Resources */,
@@ -506,6 +539,7 @@
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
 				6D0099E21E88DA8C001E5A50 /* NSArray+DSArray.m in Sources */,
 				6D0099DE1E880864001E5A50 /* DSPhoto.m in Sources */,
+				6D009A221E9A7E79001E5A50 /* DSDeliveryChooseCell.m in Sources */,
 				6D009A011E8F3B80001E5A50 /* DSCoreDataManager.m in Sources */,
 				6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */,
 				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,

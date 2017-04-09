@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DSShopingCart_MO+CoreDataProperties.h"
+#import "DSItem_MO+CoreDataClass.h"
 
 @interface DSMarket : NSObject
 
 + (DSMarket *) sharedManager;
 - (void) addItemToShopingCart:(NSDictionary *)item;
+- (DSItem_MO*) itemMOById:(int32_t) itemId;
+- (void) clearShopingCart;
 
 @end

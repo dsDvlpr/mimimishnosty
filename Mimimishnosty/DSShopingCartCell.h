@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DSItem_MO+CoreDataClass.h"
 
 @interface DSShopingCartCell : UITableViewCell
+
+@property (weak, nonatomic) DSItem_MO *itemMO;
+
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
