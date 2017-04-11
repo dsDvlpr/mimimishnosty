@@ -17,6 +17,9 @@
 #import "UIImageView+AFNetworking.h"
 #import "DSItem_MO+CoreDataClass.h"
 #import "DSMarket.h"
+#import "DSDeliveryChooseCell.h"
+#import "DSAdressCell.h"
+#import "DSPlaceOrderCell.h"
 
 @interface DSShopingCartViewController () <NSFetchedResultsControllerDelegate>
 
@@ -24,7 +27,10 @@
 
 @end
 
-static NSString *identifier = @"shopingCartCell";
+static NSString *itemIdentifier = @"shopingCartCell";
+static NSString *deliveryChooseIdentifier = @"deliveryChooseCell";
+static NSString *adressIdentifier = @"adressCell";
+static NSString *placeOrderIdentifier = @"placeOrderCell";
 
 @implementation DSShopingCartViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
@@ -41,24 +47,22 @@ static NSString *identifier = @"shopingCartCell";
     clearBarButton.tintColor = [UIColor redColor];
     self.navigationItem.rightBarButtonItem = clearBarButton;
     
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass([DSShopingCartCell class])
+    UINib *itemNib = [UINib nibWithNibName:NSStringFromClass([DSShopingCartCell class])
                                 bundle:[NSBundle mainBundle]];
-    [self.tableView registerNib:nib
-         forCellReuseIdentifier:identifier];
+    UINib *deliveryChooseNib = [UINib nibWithNibName:NSStringFromClass([DSDeliveryChooseCell class]) bundle:[NSBundle mainBundle]];
+    UINib *adressNib = [UINib nibWithNibName:NSStringFromClass([DSAdressCell class]) bundle:[NSBundle mainBundle]];
+    UINib *placeOrderNib = [UINib nibWithNibName:NSStringFromClass([DSPlaceOrderCell class]) bundle:[NSBundle mainBundle]];
+    
+    [self.tableView registerNib:itemNib
+         forCellReuseIdentifier:itemIdentifier];
+    [self.tableView registerNib:deliveryChooseNib
+         forCellReuseIdentifier:deliveryChooseIdentifier];
+    [self.tableView registerNib:adressNib
+         forCellReuseIdentifier:adressIdentifier];
+    [self.tableView registerNib:placeOrderNib
+         forCellReuseIdentifier:placeOrderIdentifier];
 
 }
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -139,58 +143,108 @@ static NSString *identifier = @"shopingCartCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return [[self.fetchedResultsController sections] count];
+    return [[self.fetchedResultsController sections] count] + 2;
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    switch (section) {
+        case 0:
+            return [self numberOfItems];
+            break;
+            
+        case 1:
+            return 3;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
 
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    DSShopingCartCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[DSShopingCartCell alloc] init];
+    if (indexPath.section == 0) {
+        
+        DSShopingCartCell *cell = [tableView dequeueReusableCellWithIdentifier:itemIdentifier forIndexPath:indexPath];
+        
+        if (!cell) {
+            cell = [[DSShopingCartCell alloc] init];
+        }
+        
+        DSItem_MO *itemMO = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        int32_t itemId = itemMO.itemId;
+        
+        cell.itemMO = itemMO;
+        DSVKManager *vkManager = [DSVKManager sharedManager];
+        NSDictionary *itemInfo = [[vkManager vkMarket] itemInfoDictionaryForId:itemId];
+        NSString *photoURLString = [itemInfo objectForKey:DSVKMarketItemMainImageURLKey];
+        NSURL *imageURL = [NSURL URLWithString:photoURLString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+        __weak DSShopingCartCell *weakCell = cell;
+        [cell.mainImageView setImageWithURLRequest:request
+                                  placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
+                                           success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                               
+                                               weakCell.mainImageView.image = image;
+                                               [weakCell layoutSubviews];
+                                               
+                                           } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                               ;
+                                           }];
+        
+        cell.titleLabel.text = itemMO.title;
+        cell.quantityLabel.text = [NSString stringWithFormat:@"%d", itemMO.quantity];
+        cell.priceLabel.text = [[itemInfo objectForKey:DSVKMarketItemPriceKey]
+                                objectForKey:@"text"];
+        int totalPrice = itemMO.quantity * itemMO.price;
+        cell.totalPriceLabel.text = [NSString stringWithFormat:@"%d руб.", totalPrice];
+        
+        return cell;
+        
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
+        
+        DSDeliveryChooseCell *cell = [tableView dequeueReusableCellWithIdentifier:deliveryChooseIdentifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[DSDeliveryChooseCell alloc] init];
+        }
+        
+        return cell;
+        
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        
+        DSAdressCell *cell = [tableView dequeueReusableCellWithIdentifier:adressIdentifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[DSAdressCell alloc] init];
+        }
+        
+        return cell;
+        
+    } else if (indexPath.section == 1 && indexPath.row == 2) {
+        
+        DSPlaceOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:placeOrderIdentifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[DSPlaceOrderCell alloc] init];
+        }
+        
+        return cell;
+        
     }
     
-    DSItem_MO *itemMO = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    int32_t itemId = itemMO.itemId;
-    
-    cell.itemMO = itemMO;
-    DSVKManager *vkManager = [DSVKManager sharedManager];
-    NSDictionary *itemInfo = [[vkManager vkMarket] itemInfoDictionaryForId:itemId];
-    NSString *photoURLString = [itemInfo objectForKey:DSVKMarketItemMainImageURLKey];
-    NSURL *imageURL = [NSURL URLWithString:photoURLString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
-    __weak DSShopingCartCell *weakCell = cell;
-    [cell.mainImageView setImageWithURLRequest:request
-                              placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
-                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-                                           
-                                           weakCell.mainImageView.image = image;
-                                           [weakCell layoutSubviews];
-                                           
-                                       } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                                           ;
-                                       }];
-
-    cell.titleLabel.text = itemMO.title;
-    cell.quantityLabel.text = [NSString stringWithFormat:@"%d", itemMO.quantity];
-    cell.priceLabel.text = [[itemInfo objectForKey:DSVKMarketItemPriceKey]
-                            objectForKey:@"text"];
-    int totalPrice = itemMO.quantity * itemMO.price;
-    cell.totalPriceLabel.text = [NSString stringWithFormat:@"%d руб.", totalPrice];
-    return cell;
+    return nil;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return YES;
+    if (indexPath.section == 0) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -207,6 +261,23 @@ static NSString *identifier = @"shopingCartCell";
     }
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    switch (section) {
+        case 0:
+            return @"Товары";
+            break;
+            
+        case 1:
+            return @"Доставка";
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
+}
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // The table view should not be re-orderable.
@@ -214,36 +285,59 @@ static NSString *identifier = @"shopingCartCell";
 }
 
 #pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 160.f;
+    if (indexPath.section == 0) {
+        return 160.f;
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
+        return 44.f;
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        return 77.f;
+    } else if (indexPath.section == 1 && indexPath.row == 2) {
+        return 100.f;
+    }
+    return 44.f;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    UIStoryboard *storyboard =
-    [UIStoryboard storyboardWithName:@"Main"
-                              bundle:[NSBundle mainBundle]];
-    
-    DSItemViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"DSItemViewController"];
-    DSItem_MO *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    int32_t itemId = item.itemId;
-
-    NSDictionary *itemInfo = [[[DSVKManager sharedManager]vkMarket] itemInfoDictionaryForId:itemId];
-    
-    vc.itemInfo = itemInfo;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.section == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        
+        UIStoryboard *storyboard =
+        [UIStoryboard storyboardWithName:@"Main"
+                                  bundle:[NSBundle mainBundle]];
+        
+        DSItemViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"DSItemViewController"];
+        DSItem_MO *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        int32_t itemId = item.itemId;
+        
+        NSDictionary *itemInfo = [[[DSVKManager sharedManager]vkMarket] itemInfoDictionaryForId:itemId];
+        
+        vc.itemInfo = itemInfo;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - Actions
+
 - (void) actionClearShopingCart:(UIBarButtonItem *)sender {
     
     [[DSMarket sharedManager] clearShopingCart];
     
 }
+
+#pragma mark - Methods
+
+- (NSUInteger) numberOfItems {
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][0];
+    return [sectionInfo numberOfObjects];
+    
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

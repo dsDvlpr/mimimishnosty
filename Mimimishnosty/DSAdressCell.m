@@ -1,14 +1,14 @@
 //
-//  DSDeliveryChooseCell.m
+//  DSAdressCell.m
 //  Mimimishnosty
 //
-//  Created by Dmitry Sharygin on 09.04.17.
+//  Created by Dmitry Sharygin on 11.04.17.
 //  Copyright © 2017 Dmitry Sharygin. All rights reserved.
 //
 
-#import "DSDeliveryChooseCell.h"
+#import "DSAdressCell.h"
 
-@implementation DSDeliveryChooseCell
+@implementation DSAdressCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,9 +21,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)actionDeliveryChanged:(UISegmentedControl *)sender {
-    
-    [self.delegate deliveryTypeDidChangeInDeliveryChooseCell:self];
-    
-}
 @end

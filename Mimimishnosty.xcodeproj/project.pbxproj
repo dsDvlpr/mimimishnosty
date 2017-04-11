@@ -44,6 +44,14 @@
 		6D009A1B1E92A575001E5A50 /* DSShopingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D009A191E92A575001E5A50 /* DSShopingCartCell.xib */; };
 		6D009A221E9A7E79001E5A50 /* DSDeliveryChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D009A201E9A7E79001E5A50 /* DSDeliveryChooseCell.m */; };
 		6D009A231E9A7E79001E5A50 /* DSDeliveryChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D009A211E9A7E79001E5A50 /* DSDeliveryChooseCell.xib */; };
+		6D00C4F91E9A8B550052EB61 /* delivery.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C4F71E9A8B550052EB61 /* delivery.png */; };
+		6D00C4FA1E9A8B550052EB61 /* selfDelivery.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C4F81E9A8B550052EB61 /* selfDelivery.jpg */; };
+		6D00C4FE1E9D2F3A0052EB61 /* DSAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C4FC1E9D2F3A0052EB61 /* DSAdressCell.m */; };
+		6D00C4FF1E9D2F3A0052EB61 /* DSAdressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C4FD1E9D2F3A0052EB61 /* DSAdressCell.xib */; };
+		6D00C5091E9D7C990052EB61 /* DSPlaceOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C5071E9D7C990052EB61 /* DSPlaceOrderCell.m */; };
+		6D00C50A1E9D7C990052EB61 /* DSPlaceOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C5081E9D7C990052EB61 /* DSPlaceOrderCell.xib */; };
+		6D00C50D1E9D7DC20052EB61 /* placeOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C50C1E9D7DC20052EB61 /* placeOrder.png */; };
+		6D00C5101E9D86DD0052EB61 /* DSAdressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +117,17 @@
 		6D009A1F1E9A7E79001E5A50 /* DSDeliveryChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDeliveryChooseCell.h; sourceTree = "<group>"; };
 		6D009A201E9A7E79001E5A50 /* DSDeliveryChooseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDeliveryChooseCell.m; sourceTree = "<group>"; };
 		6D009A211E9A7E79001E5A50 /* DSDeliveryChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSDeliveryChooseCell.xib; sourceTree = "<group>"; };
+		6D00C4F71E9A8B550052EB61 /* delivery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delivery.png; path = Images/delivery.png; sourceTree = "<group>"; };
+		6D00C4F81E9A8B550052EB61 /* selfDelivery.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = selfDelivery.jpg; path = Images/selfDelivery.jpg; sourceTree = "<group>"; };
+		6D00C4FB1E9D2F3A0052EB61 /* DSAdressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAdressCell.h; sourceTree = "<group>"; };
+		6D00C4FC1E9D2F3A0052EB61 /* DSAdressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAdressCell.m; sourceTree = "<group>"; };
+		6D00C4FD1E9D2F3A0052EB61 /* DSAdressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSAdressCell.xib; sourceTree = "<group>"; };
+		6D00C5061E9D7C990052EB61 /* DSPlaceOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPlaceOrderCell.h; sourceTree = "<group>"; };
+		6D00C5071E9D7C990052EB61 /* DSPlaceOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPlaceOrderCell.m; sourceTree = "<group>"; };
+		6D00C5081E9D7C990052EB61 /* DSPlaceOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSPlaceOrderCell.xib; sourceTree = "<group>"; };
+		6D00C50C1E9D7DC20052EB61 /* placeOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeOrder.png; path = Images/placeOrder.png; sourceTree = "<group>"; };
+		6D00C50E1E9D86DD0052EB61 /* DSAdressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAdressViewController.h; sourceTree = "<group>"; };
+		6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAdressViewController.m; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +213,9 @@
 		6D0099AB1E8025E2001E5A50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6D00C50C1E9D7DC20052EB61 /* placeOrder.png */,
+				6D00C4F71E9A8B550052EB61 /* delivery.png */,
+				6D00C4F81E9A8B550052EB61 /* selfDelivery.jpg */,
 				6D0099EE1E8B29F3001E5A50 /* defaultPic.png */,
 				6D0099C41E87554C001E5A50 /* Orders_Active.png */,
 				6D0099C51E87554C001E5A50 /* Orders_Passive.png */,
@@ -369,6 +391,8 @@
 				6D009A131E92A513001E5A50 /* DSShopingCartViewController.h */,
 				6D009A141E92A513001E5A50 /* DSShopingCartViewController.m */,
 				6D009A261E9A7EAE001E5A50 /* Cells */,
+				6D00C50E1E9D86DD0052EB61 /* DSAdressViewController.h */,
+				6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */,
 			);
 			name = "Shoping Cart";
 			sourceTree = "<group>";
@@ -398,8 +422,30 @@
 			children = (
 				6D009A251E9A7E9F001E5A50 /* Items */,
 				6D009A241E9A7E8A001E5A50 /* Delivery */,
+				6D00C5001E9D2F770052EB61 /* Adress */,
+				6D00C50B1E9D7CA10052EB61 /* PlaceOrder */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		6D00C5001E9D2F770052EB61 /* Adress */ = {
+			isa = PBXGroup;
+			children = (
+				6D00C4FB1E9D2F3A0052EB61 /* DSAdressCell.h */,
+				6D00C4FC1E9D2F3A0052EB61 /* DSAdressCell.m */,
+				6D00C4FD1E9D2F3A0052EB61 /* DSAdressCell.xib */,
+			);
+			name = Adress;
+			sourceTree = "<group>";
+		};
+		6D00C50B1E9D7CA10052EB61 /* PlaceOrder */ = {
+			isa = PBXGroup;
+			children = (
+				6D00C5061E9D7C990052EB61 /* DSPlaceOrderCell.h */,
+				6D00C5071E9D7C990052EB61 /* DSPlaceOrderCell.m */,
+				6D00C5081E9D7C990052EB61 /* DSPlaceOrderCell.xib */,
+			);
+			name = PlaceOrder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,18 +510,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D00C4F91E9A8B550052EB61 /* delivery.png in Resources */,
 				6D0099CA1E87554C001E5A50 /* Orders_Active.png in Resources */,
 				6D0099CE1E87554C001E5A50 /* Shoping_Cart_Active.png in Resources */,
 				6D0099A41E8022A3001E5A50 /* LaunchScreen.storyboard in Resources */,
 				6D009A1B1E92A575001E5A50 /* DSShopingCartCell.xib in Resources */,
 				6D0099AD1E802613001E5A50 /* Start.jpg in Resources */,
 				6D0099ED1E8B1874001E5A50 /* DSShopCell.xib in Resources */,
+				6D00C50D1E9D7DC20052EB61 /* placeOrder.png in Resources */,
 				6D0099A11E8022A3001E5A50 /* Assets.xcassets in Resources */,
 				6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */,
 				6D0099CC1E87554C001E5A50 /* Shop_Active.png in Resources */,
 				6D009A231E9A7E79001E5A50 /* DSDeliveryChooseCell.xib in Resources */,
+				6D00C50A1E9D7C990052EB61 /* DSPlaceOrderCell.xib in Resources */,
+				6D00C4FF1E9D2F3A0052EB61 /* DSAdressCell.xib in Resources */,
 				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
 				6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */,
+				6D00C4FA1E9A8B550052EB61 /* selfDelivery.jpg in Resources */,
 				6D00999C1E8022A2001E5A50 /* Main.storyboard in Resources */,
 				6D0099CD1E87554C001E5A50 /* Shop_Passive.png in Resources */,
 			);
@@ -539,13 +590,16 @@
 				6D00999F1E8022A2001E5A50 /* Mimimishnosty.xcdatamodeld in Sources */,
 				6D0099E21E88DA8C001E5A50 /* NSArray+DSArray.m in Sources */,
 				6D0099DE1E880864001E5A50 /* DSPhoto.m in Sources */,
+				6D00C5101E9D86DD0052EB61 /* DSAdressViewController.m in Sources */,
 				6D009A221E9A7E79001E5A50 /* DSDeliveryChooseCell.m in Sources */,
 				6D009A011E8F3B80001E5A50 /* DSCoreDataManager.m in Sources */,
 				6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */,
 				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
 				6D009A091E913B7E001E5A50 /* DSShopingCart.m in Sources */,
+				6D00C5091E9D7C990052EB61 /* DSPlaceOrderCell.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
+				6D00C4FE1E9D2F3A0052EB61 /* DSAdressCell.m in Sources */,
 				6D0099C31E873547001E5A50 /* DSBarViewController.m in Sources */,
 				6D009A0D1E91420F001E5A50 /* DSItemMOManager.m in Sources */,
 				6D0099B11E802A10001E5A50 /* DSStartViewController.m in Sources */,
