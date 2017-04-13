@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DSOrder_MO+CoreDataClass.h"
 
 @interface DSOrderMOManager : NSObject
 
 - (void) createNewOrderWithItems:(NSArray *) items;
-- (NSInteger) totalPrice;
+- (NSInteger) totalPriceOfOrder:(DSOrder_MO *) order;
 
 @end

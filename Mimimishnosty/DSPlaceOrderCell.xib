@@ -12,38 +12,79 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="placeOrderCell" rowHeight="100" id="KGk-i7-Jjw" customClass="DSPlaceOrderCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="placeOrderCell" rowHeight="180" id="KGk-i7-Jjw" customClass="DSPlaceOrderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpx-YY-uSI">
-                        <rect key="frame" x="122" y="0.0" width="76" height="76"/>
+                        <rect key="frame" x="110" y="56" width="100" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="76" id="1nH-PO-PxC"/>
-                            <constraint firstAttribute="width" constant="76" id="e4Z-1Z-OH9"/>
+                            <constraint firstAttribute="height" constant="100" id="1nH-PO-PxC"/>
+                            <constraint firstAttribute="width" constant="100" id="e4Z-1Z-OH9"/>
                         </constraints>
                         <state key="normal" title="Button" image="placeOrder.png"/>
+                        <connections>
+                            <action selector="actionPlaceOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QAn-pL-jhc"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sy-xK-Tbf">
-                        <rect key="frame" x="101" y="76" width="119" height="23"/>
+                        <rect key="frame" x="101" y="157" width="119" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="4zg-B8-XWp"/>
                             <constraint firstAttribute="width" constant="119" id="zsQ-br-1gN"/>
                         </constraints>
                         <state key="normal" title="Оформить заказ"/>
+                        <connections>
+                            <action selector="actionPlaceOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lfI-Sj-2kH"/>
+                        </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Всего:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYH-Zq-m75">
+                        <rect key="frame" x="174" y="10" width="52" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="52" id="Acz-oa-gXC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sB5-Do-2iQ">
+                        <rect key="frame" x="234" y="10" width="78" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоимость доставки по Москве 150 руб." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1F-EA-S4g">
+                        <rect key="frame" x="8" y="0.0" width="133" height="47"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="133" id="K0k-Fa-drI"/>
+                            <constraint firstAttribute="height" constant="47" id="lu6-TP-nNx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qpx-YY-uSI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3Cg-gk-6tW"/>
-                    <constraint firstItem="7Sy-xK-Tbf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="D6q-gf-Z1q"/>
-                    <constraint firstItem="qpx-YY-uSI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="eNh-xe-4hF"/>
-                    <constraint firstItem="7Sy-xK-Tbf" firstAttribute="top" secondItem="qpx-YY-uSI" secondAttribute="bottom" id="st4-MG-H8H"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sB5-Do-2iQ" secondAttribute="trailing" id="Dvv-Nw-Ikf"/>
+                    <constraint firstItem="MYH-Zq-m75" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="FpI-Y2-biN"/>
+                    <constraint firstItem="J1F-EA-S4g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="KVK-0B-1I8"/>
+                    <constraint firstItem="7Sy-xK-Tbf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="O2t-bl-iAm"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="J1F-EA-S4g" secondAttribute="leading" id="RpW-2i-1be"/>
+                    <constraint firstItem="sB5-Do-2iQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="WnR-on-rWL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7Sy-xK-Tbf" secondAttribute="bottom" constant="-8" id="is3-hL-kqL"/>
+                    <constraint firstItem="7Sy-xK-Tbf" firstAttribute="top" secondItem="qpx-YY-uSI" secondAttribute="bottom" constant="1" id="jpD-gv-IgP"/>
+                    <constraint firstItem="qpx-YY-uSI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="mSN-W1-W6J"/>
+                    <constraint firstItem="sB5-Do-2iQ" firstAttribute="leading" secondItem="MYH-Zq-m75" secondAttribute="trailing" constant="8" id="nlH-vi-5ea"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="34" y="82"/>
+            <connections>
+                <outlet property="deliveryLabel" destination="J1F-EA-S4g" id="SSn-od-daE"/>
+                <outlet property="totalPrice" destination="sB5-Do-2iQ" id="gCF-vB-vBB"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="122"/>
         </tableViewCell>
     </objects>
     <resources>

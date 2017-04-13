@@ -16,5 +16,6 @@
 - (void) addItemToShopingCart:(NSDictionary *)item;
 - (DSItem_MO*) itemMOById:(int32_t) itemId;
 - (void) clearShopingCart;
+- (NSString *) adressString;
 
 @end

@@ -20,10 +20,14 @@
 #import "DSDeliveryChooseCell.h"
 #import "DSAdressCell.h"
 #import "DSPlaceOrderCell.h"
+#import "DSAdressViewController.h"
 
-@interface DSShopingCartViewController () <NSFetchedResultsControllerDelegate>
+@interface DSShopingCartViewController () <NSFetchedResultsControllerDelegate, DSDeliveryChooseCellDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+@property (assign, nonatomic) BOOL isDeliverySelected;
+@property (assign, nonatomic) NSInteger totalPriceValue;
 
 @end
 
@@ -32,12 +36,15 @@ static NSString *deliveryChooseIdentifier = @"deliveryChooseCell";
 static NSString *adressIdentifier = @"adressCell";
 static NSString *placeOrderIdentifier = @"placeOrderCell";
 
+NSString *adress;
+
 @implementation DSShopingCartViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    adress = [[DSMarket sharedManager] adressString];
     UIBarButtonItem *clearBarButton =
     [[UIBarButtonItem alloc] initWithTitle:@"Очистить корзину"
                                      style:UIBarButtonItemStylePlain
@@ -61,6 +68,11 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
          forCellReuseIdentifier:adressIdentifier];
     [self.tableView registerNib:placeOrderNib
          forCellReuseIdentifier:placeOrderIdentifier];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleUpdateAdress:)
+                                                 name:DSAdressChangedNotification
+                                               object:nil];
 
 }
 
@@ -126,11 +138,15 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
         
         [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
                               withRowAnimation:UITableViewRowAnimationRight];
+        self.totalPriceValue = [self totalPrice];
+        [self.tableView reloadData];
+
     } else {
         
         [self.tableView reloadData];
         
     }
+    
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
@@ -214,6 +230,10 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
             cell = [[DSDeliveryChooseCell alloc] init];
         }
         
+        self.isDeliverySelected = !cell.deliveryChoseSegmentControl.selectedSegmentIndex;
+        
+        cell.delegate = self;
+        
         return cell;
         
     } else if (indexPath.section == 1 && indexPath.row == 1) {
@@ -223,6 +243,13 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
             cell = [[DSAdressCell alloc] init];
         }
         
+        if (self.isDeliverySelected) {
+            cell.adressLabel.text = adress;
+        } else {
+            cell.adressLabel.text = @"Забрать товар Вы можете по адресу: Уральская ул. д. 19 корп.1";
+        }
+        
+        
         return cell;
         
     } else if (indexPath.section == 1 && indexPath.row == 2) {
@@ -231,6 +258,9 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
         if (!cell) {
             cell = [[DSPlaceOrderCell alloc] init];
         }
+        
+        cell.deliveryLabel.alpha = self.isDeliverySelected ? 1.f :0.f;
+        cell.totalPrice.text = [NSString stringWithFormat:@"%ld", self.totalPrice];
         
         return cell;
         
@@ -295,13 +325,15 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
     } else if (indexPath.section == 1 && indexPath.row == 1) {
         return 77.f;
     } else if (indexPath.section == 1 && indexPath.row == 2) {
-        return 100.f;
+        return 180.f;
     }
     return 44.f;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (indexPath.section == 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -318,7 +350,42 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
         
         vc.itemInfo = itemInfo;
         [self.navigationController pushViewController:vc animated:YES];
+    
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+    
+        UIStoryboard *storyboard =
+        [UIStoryboard storyboardWithName:@"Main"
+                                  bundle:[NSBundle mainBundle]];
+
+        DSAdressViewController *adressVC = [storyboard instantiateViewControllerWithIdentifier:@"DSAdressViewController"];
+        
+        [self.navigationController presentViewController:adressVC animated:YES completion:^{
+            ;
+        }];
+        
     }
+    
+    
+}
+
+#pragma mark - DSDeliveryChooseCellDelegate
+
+-(void) deliveryTypeDidChangeInDeliveryChooseCell:(DSDeliveryChooseCell *) cell{
+    self.isDeliverySelected = !cell.deliveryChoseSegmentControl.selectedSegmentIndex;
+    
+    
+    [UIView animateWithDuration:0.2f
+                          delay:0.f
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         
+                         [self.tableView beginUpdates];
+                         [self.tableView endUpdates];
+                         
+                     }
+                     completion:^(BOOL finished) {
+                         [self.tableView reloadData];
+                     }];
 }
 
 #pragma mark - Actions
@@ -329,6 +396,15 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
     
 }
 
+#pragma mark - Notifications handling
+
+- (void) handleUpdateAdress:(NSNotification *) notification {
+    
+    adress = [[DSMarket sharedManager] adressString];
+    [self.tableView reloadData];
+    
+}
+
 #pragma mark - Methods
 
 - (NSUInteger) numberOfItems {
@@ -336,6 +412,18 @@ static NSString *placeOrderIdentifier = @"placeOrderCell";
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][0];
     return [sectionInfo numberOfObjects];
     
+}
+
+- (NSInteger) totalPrice {
+    
+    NSInteger result = 0;
+    NSArray *items = [self.fetchedResultsController fetchedObjects];
+    for (DSItem_MO *itemMO in items) {
+        result += itemMO.price * itemMO.quantity;
+    }
+    result += self.isDeliverySelected * 150;
+    //[self.tableView reloadData];
+    return result;
 }
 
 /*

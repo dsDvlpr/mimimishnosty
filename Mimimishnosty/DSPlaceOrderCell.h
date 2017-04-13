@@ -10,4 +10,12 @@
 
 @interface DSPlaceOrderCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *deliveryLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalPrice;
+
+
+- (IBAction)actionPlaceOrder:(UIButton *)sender;
+
+
 @end

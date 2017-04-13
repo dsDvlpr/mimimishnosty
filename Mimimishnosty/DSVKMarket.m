@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import <VKSdk.h>
 #import "NSArray+DSArray.h"
+#import "DSAdressMOManager.h"
 
 NSString *const DSMarketManagerShopArrayDidChangeNotification = @"DSMarketManagerShopArrayDidChangeNotification";
 

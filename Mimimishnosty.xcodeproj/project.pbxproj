@@ -52,6 +52,8 @@
 		6D00C50A1E9D7C990052EB61 /* DSPlaceOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C5081E9D7C990052EB61 /* DSPlaceOrderCell.xib */; };
 		6D00C50D1E9D7DC20052EB61 /* placeOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C50C1E9D7DC20052EB61 /* placeOrder.png */; };
 		6D00C5101E9D86DD0052EB61 /* DSAdressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */; };
+		6D00C5141E9ED1480052EB61 /* DSAdressMOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C5131E9ED1480052EB61 /* DSAdressMOManager.m */; };
+		6D00C5161E9FDF740052EB61 /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C5151E9FDF740052EB61 /* Location.png */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +130,9 @@
 		6D00C50C1E9D7DC20052EB61 /* placeOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeOrder.png; path = Images/placeOrder.png; sourceTree = "<group>"; };
 		6D00C50E1E9D86DD0052EB61 /* DSAdressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAdressViewController.h; sourceTree = "<group>"; };
 		6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAdressViewController.m; sourceTree = "<group>"; };
+		6D00C5121E9ED1480052EB61 /* DSAdressMOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAdressMOManager.h; sourceTree = "<group>"; };
+		6D00C5131E9ED1480052EB61 /* DSAdressMOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAdressMOManager.m; sourceTree = "<group>"; };
+		6D00C5151E9FDF740052EB61 /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Location.png; path = Images/Location.png; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +190,6 @@
 				6D0099D71E87FBEB001E5A50 /* Models */,
 				6D0099C01E8734F2001E5A50 /* TabViewController */,
 				6D0099B21E803131001E5A50 /* Managers */,
-				6D0099AE1E8029E5001E5A50 /* StartViewController */,
 				6D0099AB1E8025E2001E5A50 /* Images */,
 				6D0099941E8022A2001E5A50 /* AppDelegate.h */,
 				6D0099951E8022A2001E5A50 /* AppDelegate.m */,
@@ -213,6 +217,7 @@
 		6D0099AB1E8025E2001E5A50 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6D00C5151E9FDF740052EB61 /* Location.png */,
 				6D00C50C1E9D7DC20052EB61 /* placeOrder.png */,
 				6D00C4F71E9A8B550052EB61 /* delivery.png */,
 				6D00C4F81E9A8B550052EB61 /* selfDelivery.jpg */,
@@ -269,6 +274,7 @@
 		6D0099D31E87567B001E5A50 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D0099AE1E8029E5001E5A50 /* StartViewController */,
 				6D0099E31E88DE56001E5A50 /* Shop */,
 				6D0099F31E8C185B001E5A50 /* Item */,
 				6D009A161E92A521001E5A50 /* Shoping Cart */,
@@ -354,6 +360,8 @@
 				6D009A0A1E913B86001E5A50 /* DSShopingCart */,
 				6D009A0E1E91421F001E5A50 /* DSItemMOManager */,
 				6D009A121E91468E001E5A50 /* DSOrderMOManager */,
+				6D00C5121E9ED1480052EB61 /* DSAdressMOManager.h */,
+				6D00C5131E9ED1480052EB61 /* DSAdressMOManager.m */,
 			);
 			name = DSMarket;
 			sourceTree = "<group>";
@@ -391,8 +399,7 @@
 				6D009A131E92A513001E5A50 /* DSShopingCartViewController.h */,
 				6D009A141E92A513001E5A50 /* DSShopingCartViewController.m */,
 				6D009A261E9A7EAE001E5A50 /* Cells */,
-				6D00C50E1E9D86DD0052EB61 /* DSAdressViewController.h */,
-				6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */,
+				6D00C5111E9E99590052EB61 /* Adress */,
 			);
 			name = "Shoping Cart";
 			sourceTree = "<group>";
@@ -446,6 +453,15 @@
 				6D00C5081E9D7C990052EB61 /* DSPlaceOrderCell.xib */,
 			);
 			name = PlaceOrder;
+			sourceTree = "<group>";
+		};
+		6D00C5111E9E99590052EB61 /* Adress */ = {
+			isa = PBXGroup;
+			children = (
+				6D00C50E1E9D86DD0052EB61 /* DSAdressViewController.h */,
+				6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */,
+			);
+			name = Adress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,6 +538,7 @@
 				6D0099EF1E8B29F3001E5A50 /* defaultPic.png in Resources */,
 				6D0099CC1E87554C001E5A50 /* Shop_Active.png in Resources */,
 				6D009A231E9A7E79001E5A50 /* DSDeliveryChooseCell.xib in Resources */,
+				6D00C5161E9FDF740052EB61 /* Location.png in Resources */,
 				6D00C50A1E9D7C990052EB61 /* DSPlaceOrderCell.xib in Resources */,
 				6D00C4FF1E9D2F3A0052EB61 /* DSAdressCell.xib in Resources */,
 				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
@@ -613,6 +630,7 @@
 				6D009A1A1E92A575001E5A50 /* DSShopingCartCell.m in Sources */,
 				6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,
+				6D00C5141E9ED1480052EB61 /* DSAdressMOManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "DSItemMOManager.h"
 #import "DSVKManager.h"
 #import "DSShopingCart.h"
+#import "DSAdressMOManager.h"
 
 @implementation DSMarket
 
@@ -51,6 +52,34 @@
     DSShopingCart *shopingCart = [[DSShopingCart alloc] init];
     [shopingCart clearShopingCart];
     
+}
+
+- (NSString *) adressString {
+    
+    NSMutableString *result = [NSMutableString string];
+    DSAdressMOManager *adressManager = [[DSAdressMOManager alloc] init];
+    
+    if ([adressManager.currentCity length] > 0) {
+        [result appendString:adressManager.currentCity];
+    }
+    
+    if ([adressManager.currentStreet length] > 0) {
+        [result appendString:[NSString stringWithFormat:@" ул. %@", adressManager.currentStreet]];
+    }
+    
+    if ([adressManager.currentHouse length] > 0) {
+        [result appendString:[NSString stringWithFormat:@", д. %@", adressManager.currentHouse]];
+    }
+    
+    if ([adressManager.currentBuilding length] > 0) {
+        [result appendString:[NSString stringWithFormat:@" %@", adressManager.currentBuilding]];
+    }
+    
+    if ([adressManager.currentFlat length] > 0) {
+        [result appendString:[NSString stringWithFormat:@", кв. %@", adressManager.currentFlat]];
+    }
+    
+    return [NSString stringWithFormat:@"%@.", result];
 }
 
 @end

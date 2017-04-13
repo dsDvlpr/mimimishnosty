@@ -7,8 +7,13 @@
 //
 
 #import "DSAdressViewController.h"
+#import "DSAdressMOManager.h"
 
-@interface DSAdressViewController ()
+NSString *const DSAdressChangedNotification = @"DSAdressChangedNotification";
+
+@interface DSAdressViewController ()<UITextFieldDelegate>
+
+@property (strong, nonatomic) DSAdressMOManager *adressMOManager;
 
 @end
 
@@ -17,11 +22,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSLog(@"viewDidLoad");
+    self.adressMOManager = [[DSAdressMOManager alloc] init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    for (UITextField *textField in self.textFields) {
+        textField.delegate = self;
+    }
+
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self loadData];
+
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear");
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,16 +48,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITextFieldDelegate
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (![textField isEqual:[self.textFields lastObject]]) {
+        NSInteger index = [self.textFields indexOfObject:textField];
+        [[self.textFields objectAtIndex:index + 1] becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 /*
@@ -94,5 +115,73 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Actions
+
+- (IBAction)actionReadyButton:(UIButton *)sender {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DSAdressChangedNotification object:nil];
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 ;
+                             }];
+    
+}
+
+- (IBAction)actionTextFieldEditingDidEnd:(UITextField *)sender {
+    [self saveDataBy:sender];
+
+}
+
+- (IBAction)actionTextFieldEditingChanged:(UITextField *)sender {
+    [self saveDataBy:sender];
+
+}
+
+#pragma mark - Methods
+
+- (void) saveDataBy:(UITextField *)sender {
+    
+    if ([sender isEqual:self.cityTextField]) {
+        
+        self.adressMOManager.currentCity = self.cityTextField.text;
+        
+    }
+    
+    if ([sender isEqual:self.streetTextField]) {
+        
+        self.adressMOManager.currentStreet = self.streetTextField.text;
+        
+    }
+    
+    if ([sender isEqual:self.flatNumberTextField]) {
+        
+        self.adressMOManager.currentFlat = self.flatNumberTextField.text;
+        
+    }
+    
+    if ([sender isEqual:self.buildingTextField]) {
+        
+        self.adressMOManager.currentBuilding = self.buildingTextField.text;
+        
+    }
+    
+    if ([sender isEqual:self.houseNumberTextField]) {
+        
+        self.adressMOManager.currentHouse = self.houseNumberTextField.text;
+        
+    }
+}
+
+- (void) loadData {
+    
+    self.cityTextField.text = self.adressMOManager.currentCity;
+    self.streetTextField.text = self.adressMOManager.currentStreet;
+    self.flatNumberTextField.text = self.adressMOManager.currentFlat;
+    self.buildingTextField.text = self.adressMOManager.currentBuilding;
+    self.houseNumberTextField.text = self.adressMOManager.currentHouse;
+    
+}
 
 @end
