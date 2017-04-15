@@ -1,15 +1,14 @@
 //
-//  DSPlaceOrderCell.m
+//  DSOrdersCell.m
 //  Mimimishnosty
 //
-//  Created by Dmitry Sharygin on 12.04.17.
+//  Created by Dmitry Sharygin on 15.04.17.
 //  Copyright © 2017 Dmitry Sharygin. All rights reserved.
 //
 
-#import "DSPlaceOrderCell.h"
-#import "DSOrderMOManager.h"
+#import "DSOrdersCell.h"
 
-@implementation DSPlaceOrderCell
+@implementation DSOrdersCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,10 +21,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)actionPlaceOrder:(UIButton *)sender {
-    
-    DSOrderMOManager *orderManager = [[DSOrderMOManager alloc] init];
-    [orderManager createNewOrder];
-    
-}
 @end

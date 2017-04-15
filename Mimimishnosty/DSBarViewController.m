@@ -12,6 +12,7 @@
 #import "BATabBarBadge.h"
 #import "DSShopViewController.h"
 #import "DSShopingCartViewController.h"
+#import "DSOrdersViewController.h"
 
 @interface DSBarViewController () <BATabBarControllerDelegate>
 
@@ -52,6 +53,18 @@
                                 selectedImage:shopingCartSelectedImage
                                     itemTitle:shopingCartTitle
                             forViewController:shopingCartNavVC];
+    
+    // Orders
+    DSOrdersViewController *ordersVC = [[DSOrdersViewController alloc] init];
+    UINavigationController *OrdersNavVC = [[UINavigationController alloc]initWithRootViewController:ordersVC];
+    UIImage *ordersSelectedImage = [UIImage imageNamed:@"Orders_Active.png"];
+    UIImage *ordersDeselectedImage = [UIImage imageNamed:@"Orders_Passive.png"];
+    NSAttributedString *orderTitle = [[NSAttributedString alloc] initWithString:@"Заказы"];
+    
+    [self createTabBarItemWithDeselectedImage:ordersDeselectedImage
+                                selectedImage:ordersSelectedImage
+                                    itemTitle:orderTitle
+                            forViewController:OrdersNavVC];
     
     //__________________________________________________________________
     //TabBarController

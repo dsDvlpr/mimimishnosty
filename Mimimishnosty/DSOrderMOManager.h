@@ -11,7 +11,7 @@
 
 @interface DSOrderMOManager : NSObject
 
-- (void) createNewOrderWithItems:(NSArray *) items;
+- (void) createNewOrder;
 - (NSInteger) totalPriceOfOrder:(DSOrder_MO *) order;
 
 @end

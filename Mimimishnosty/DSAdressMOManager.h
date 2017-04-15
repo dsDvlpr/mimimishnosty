@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSString *currentBuilding;
 
 - (DSAdress_MO *) currentAdressMO;
+- (DSAdress_MO *) adressCopy;
 
 @end

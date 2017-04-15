@@ -39,6 +39,24 @@
     return nil;
 }
 
+- (DSAdress_MO *)adressCopy {
+    
+    DSCoreDataManager *coreDataManager = [DSCoreDataManager sharedManager];
+    NSManagedObjectContext *context = coreDataManager.persistentContainer.viewContext;
+    DSAdress_MO *newAdress = [[DSAdress_MO alloc] initWithContext:context];
+    
+    DSAdress_MO *oldAdress = [self currentAdressMO];
+    newAdress.city = oldAdress.city;
+    newAdress.building = oldAdress.building;
+    newAdress.house = oldAdress.house;
+    newAdress.street = oldAdress.street;
+    newAdress.flat = oldAdress.flat;
+    
+    [coreDataManager saveContext];
+    
+    return newAdress;
+}
+
 #pragma mark - Setters
 
 - (void) setCurrentCity:(NSString *)city{

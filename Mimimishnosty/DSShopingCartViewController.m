@@ -422,7 +422,7 @@ NSString *adress;
         result += itemMO.price * itemMO.quantity;
     }
     result += self.isDeliverySelected * 150;
-    //[self.tableView reloadData];
+    
     return result;
 }
 

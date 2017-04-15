@@ -54,6 +54,9 @@
 		6D00C5101E9D86DD0052EB61 /* DSAdressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C50F1E9D86DD0052EB61 /* DSAdressViewController.m */; };
 		6D00C5141E9ED1480052EB61 /* DSAdressMOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C5131E9ED1480052EB61 /* DSAdressMOManager.m */; };
 		6D00C5161E9FDF740052EB61 /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C5151E9FDF740052EB61 /* Location.png */; };
+		6D00C5191EA17B0D0052EB61 /* DSOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C5181EA17B0D0052EB61 /* DSOrdersViewController.m */; };
+		6D00C5211EA180550052EB61 /* DSOrdersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C51F1EA180550052EB61 /* DSOrdersCell.m */; };
+		6D00C5221EA180550052EB61 /* DSOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C5201EA180550052EB61 /* DSOrdersCell.xib */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +136,11 @@
 		6D00C5121E9ED1480052EB61 /* DSAdressMOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAdressMOManager.h; sourceTree = "<group>"; };
 		6D00C5131E9ED1480052EB61 /* DSAdressMOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAdressMOManager.m; sourceTree = "<group>"; };
 		6D00C5151E9FDF740052EB61 /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Location.png; path = Images/Location.png; sourceTree = "<group>"; };
+		6D00C5171EA17B0C0052EB61 /* DSOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSOrdersViewController.h; sourceTree = "<group>"; };
+		6D00C5181EA17B0D0052EB61 /* DSOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSOrdersViewController.m; sourceTree = "<group>"; };
+		6D00C51E1EA180550052EB61 /* DSOrdersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSOrdersCell.h; sourceTree = "<group>"; };
+		6D00C51F1EA180550052EB61 /* DSOrdersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSOrdersCell.m; sourceTree = "<group>"; };
+		6D00C5201EA180550052EB61 /* DSOrdersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSOrdersCell.xib; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,6 +286,7 @@
 				6D0099E31E88DE56001E5A50 /* Shop */,
 				6D0099F31E8C185B001E5A50 /* Item */,
 				6D009A161E92A521001E5A50 /* Shoping Cart */,
+				6D00C51A1EA17B110052EB61 /* Orders */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -464,6 +473,18 @@
 			name = Adress;
 			sourceTree = "<group>";
 		};
+		6D00C51A1EA17B110052EB61 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				6D00C5171EA17B0C0052EB61 /* DSOrdersViewController.h */,
+				6D00C5181EA17B0D0052EB61 /* DSOrdersViewController.m */,
+				6D00C51E1EA180550052EB61 /* DSOrdersCell.h */,
+				6D00C51F1EA180550052EB61 /* DSOrdersCell.m */,
+				6D00C5201EA180550052EB61 /* DSOrdersCell.xib */,
+			);
+			name = Orders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -543,6 +564,7 @@
 				6D00C4FF1E9D2F3A0052EB61 /* DSAdressCell.xib in Resources */,
 				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
 				6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */,
+				6D00C5221EA180550052EB61 /* DSOrdersCell.xib in Resources */,
 				6D00C4FA1E9A8B550052EB61 /* selfDelivery.jpg in Resources */,
 				6D00999C1E8022A2001E5A50 /* Main.storyboard in Resources */,
 				6D0099CD1E87554C001E5A50 /* Shop_Passive.png in Resources */,
@@ -623,11 +645,13 @@
 				6D0099BF1E8095BE001E5A50 /* DSVKMarket.m in Sources */,
 				6D009A051E91305B001E5A50 /* DSMarket.m in Sources */,
 				6D009A151E92A513001E5A50 /* DSShopingCartViewController.m in Sources */,
+				6D00C5211EA180550052EB61 /* DSOrdersCell.m in Sources */,
 				6D0099E61E88DE77001E5A50 /* DSShopCell.m in Sources */,
 				6D009A111E914684001E5A50 /* DSOrderMOManager.m in Sources */,
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
 				6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */,
 				6D009A1A1E92A575001E5A50 /* DSShopingCartCell.m in Sources */,
+				6D00C5191EA17B0D0052EB61 /* DSOrdersViewController.m in Sources */,
 				6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,
 				6D00C5141E9ED1480052EB61 /* DSAdressMOManager.m in Sources */,

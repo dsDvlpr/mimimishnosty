@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ordersCell" rowHeight="200" id="KGk-i7-Jjw" customClass="DSOrdersCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hN-hF-5Cd">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="7wI-Jc-uyV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена: 550 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-yC-gPG">
+                        <rect key="frame" x="180" y="171" width="132" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="uZa-si-0Ex"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="6hN-hF-5Cd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2oU-Rj-bWa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6hN-hF-5Cd" secondAttribute="bottom" constant="163" id="8Vl-X2-hFj"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="6hN-hF-5Cd" secondAttribute="leading" id="LDq-Tx-gH6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ZZf-yC-gPG" secondAttribute="trailing" id="MZd-MV-nGC"/>
+                    <constraint firstItem="ZZf-yC-gPG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="172" id="VUg-Sk-e5d"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZZf-yC-gPG" secondAttribute="bottom" id="nyS-S7-jFw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="orderDateLabel" destination="6hN-hF-5Cd" id="ycI-1l-JJ4"/>
+                <outlet property="priceLabel" destination="ZZf-yC-gPG" id="TMg-Af-0vf"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="132"/>
+        </tableViewCell>
+    </objects>
+</document>
