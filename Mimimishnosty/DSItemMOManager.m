@@ -28,6 +28,7 @@
         resultItem.quantity = 1;
         resultItem.itemDescription = [item objectForKey:DSVKMarketItemDescriptionKey];
         resultItem.itemId = itemId;
+        resultItem.imageURLString = [item objectForKey:DSVKMarketItemMainImageURLKey];
         
         [coreDataManager saveContext];
     }

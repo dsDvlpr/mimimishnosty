@@ -25,7 +25,7 @@
 - (IBAction)actionPlaceOrder:(UIButton *)sender {
     
     DSOrderMOManager *orderManager = [[DSOrderMOManager alloc] init];
-    [orderManager createNewOrder];
+    [orderManager createNewOrderWithDelivery:self.isDeliveryChosen];
     
 }
 @end

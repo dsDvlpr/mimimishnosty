@@ -35,6 +35,7 @@ static NSString *itemIdentifier = @"shopingCartCell";
 static NSString *deliveryChooseIdentifier = @"deliveryChooseCell";
 static NSString *adressIdentifier = @"adressCell";
 static NSString *placeOrderIdentifier = @"placeOrderCell";
+static NSString *groupDegustatoryId = @"-129235573";
 
 NSString *adress;
 
@@ -261,6 +262,7 @@ NSString *adress;
         
         cell.deliveryLabel.alpha = self.isDeliverySelected ? 1.f :0.f;
         cell.totalPrice.text = [NSString stringWithFormat:@"%ld", self.totalPrice];
+        cell.isDeliveryChosen = self.isDeliverySelected;
         
         return cell;
         
@@ -424,6 +426,13 @@ NSString *adress;
     result += self.isDeliverySelected * 150;
     
     return result;
+}
+
+- (NSString *) orderMessage {
+    
+    NSMutableString *result = [NSMutableString stringWithFormat:@"Заказ"];
+    
+    return [NSString stringWithString:result];
 }
 
 /*

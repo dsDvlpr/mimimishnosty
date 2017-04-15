@@ -8,14 +8,18 @@
 
 #import "DSOrderMOManager.h"
 #import "DSShopingCart.h"
+#import "DSMarket.h"
 #import "DSItem_MO+CoreDataClass.h"
 #import "DSCoreDataManager.h"
 #import "DSAdressMOManager.h"
 #import "DSOrder_MO+CoreDataClass.h"
+#import "DSVKManager.h"
 
 @implementation DSOrderMOManager
 
-- (void) createNewOrder {
+NSString *degustatoryId = @"-129235573";
+
+- (void) createNewOrderWithDelivery:(BOOL)delivery {
     
     DSCoreDataManager *coreDataManager = [DSCoreDataManager sharedManager];
     NSManagedObjectContext *context = coreDataManager.persistentContainer.viewContext;
@@ -29,20 +33,44 @@
     adress = [adressManager adressCopy];
     newOrder.adress = adress;
     
+    NSMutableString *message = [NSMutableString stringWithFormat:@"Заказ"];
+    
     DSShopingCart *shopingCart = [[DSShopingCart alloc] init];
     for (DSItem_MO *item in shopingCart.allItems) {
         
-        //DSItem_MO *newItem = [[DSItem_MO alloc] initWithContext:context];
         DSItem_MO *newItem = item;
+        [message appendString:[NSString stringWithFormat:@"\n%@, количество: %d", item.title, item.quantity]];
         [newOrder addItemsObject:newItem];
         
     }
+    
+    
+    
+    if (delivery) {
+        
+        NSString *adressString = [[DSMarket sharedManager] adressString];
+        [message appendString:[NSString stringWithFormat:@"\nАдрес: %@", adressString]];
+    } else {
+        
+        [message appendString:@"\nСамовывоз"];
+        
+    }
+    
+    
+    [[DSVKManager sharedManager] sendMessage:[NSString stringWithString:message]
+                                toUserWithId:degustatoryId
+                                   onSuccess:^{
+                                       ;
+                                   }
+                                    onFailor:^{
+                                        ;
+                                    }];
     
     [shopingCart clearShopingCart];
     [coreDataManager saveContext];
 }
 
--(NSInteger) totalPriceOfOrder:(DSOrder_MO *)order {
+- (NSInteger) totalPriceOfOrder:(DSOrder_MO *)order {
     
     NSInteger totalPrice = 0;
     

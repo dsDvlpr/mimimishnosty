@@ -141,7 +141,6 @@ static NSArray *scope = nil;
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
-             NSLog(@"\n\n\n\nSendMessage:\n%@", responseObject);
              NSDictionary *error = [responseObject objectForKey:@"error"];
              
              if (error != nil) {

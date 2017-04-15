@@ -10,8 +10,8 @@
 
 @interface DSPlaceOrderCell : UITableViewCell
 
+@property (assign, nonatomic) BOOL isDeliveryChosen;
 @property (weak, nonatomic) IBOutlet UILabel *deliveryLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 
 
