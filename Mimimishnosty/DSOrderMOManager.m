@@ -27,7 +27,9 @@ NSString *degustatoryId = @"-129235573";
     NSDate *nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
     DSOrder_MO *newOrder = [[DSOrder_MO alloc] initWithContext:context];
     newOrder.date = nowDate;
-    
+
+    newOrder.delivery = delivery;
+
     DSAdressMOManager *adressManager = [[DSAdressMOManager alloc]init];
     DSAdress_MO *adress = [[DSAdress_MO alloc] initWithContext:context];
     adress = [adressManager adressCopy];
@@ -75,8 +77,10 @@ NSString *degustatoryId = @"-129235573";
     NSInteger totalPrice = 0;
     
     for (DSItem_MO *item in order.items) {
-        totalPrice += item.price * item.quantity;
+        totalPrice += item.price * item.quantity ;
     }
+    totalPrice += order.delivery * 150;
+    
     return totalPrice;
     
 }

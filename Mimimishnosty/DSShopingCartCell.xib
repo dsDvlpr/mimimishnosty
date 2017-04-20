@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
+                <rect key="frame" x="0.0" y="0.0" width="343" height="159"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jZ-Hb-3jc">
@@ -28,7 +28,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="Держатель для соски Аделина" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qg5-65-8c6">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="87"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LU-zz-wfv">
@@ -40,7 +40,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z3-Ns-Azb">
                                         <rect key="frame" x="0.0" y="105" width="130" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -49,12 +49,16 @@
                                     <constraint firstItem="9Z3-Ns-Azb" firstAttribute="width" secondItem="oLi-Fw-Jhg" secondAttribute="width" id="Vp3-xC-hTi"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-1T-L3O">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-1T-L3O">
                                 <rect key="frame" x="0.0" y="0.0" width="143" height="143"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="WsJ-0b-iQc"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="71"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SzX-hF-tjG" userLabel="Buttons Stack View">
                                 <rect key="frame" x="289" y="8" width="30" height="127"/>
@@ -72,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="60" id="YBD-Ke-8ye"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmE-df-yWB">
@@ -90,7 +94,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.89411764709999997" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oLi-Fw-Jhg" firstAttribute="leading" secondItem="oL6-1T-L3O" secondAttribute="trailing" constant="8" id="5pX-v0-D6l"/>
                             <constraint firstItem="SzX-hF-tjG" firstAttribute="top" secondItem="7jZ-Hb-3jc" secondAttribute="top" constant="8" id="Fso-Cv-dze"/>
@@ -103,8 +107,14 @@
                             <constraint firstItem="SzX-hF-tjG" firstAttribute="leading" secondItem="oLi-Fw-Jhg" secondAttribute="trailing" constant="8" id="rVW-2Y-zuk"/>
                             <constraint firstAttribute="trailing" secondItem="SzX-hF-tjG" secondAttribute="trailing" constant="8" id="riU-U5-97k"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="7jZ-Hb-3jc" secondAttribute="bottom" id="KPF-ao-pAG"/>
                     <constraint firstAttribute="leadingMargin" secondItem="7jZ-Hb-3jc" secondAttribute="leading" id="XGN-Ie-cPi"/>
@@ -112,6 +122,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="7jZ-Hb-3jc" secondAttribute="trailing" id="sG3-Cx-Ypy"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="mainImageView" destination="oL6-1T-L3O" id="AAQ-KD-96Y"/>
                 <outlet property="priceLabel" destination="0LU-zz-wfv" id="oG6-je-XOU"/>

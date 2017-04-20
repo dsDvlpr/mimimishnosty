@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1217" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="DSAdress" representedClassName="DSAdress_MO" syncable="YES" codeGenerationType="class">
+        <attribute name="adressId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="building" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="flat" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,6 +10,7 @@
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DSOrder" inverseName="adress" inverseEntity="DSOrder" syncable="YES"/>
     </entity>
     <entity name="DSItem" representedClassName="DSItem_MO" syncable="YES" codeGenerationType="class">
+        <attribute name="iconURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -31,8 +33,8 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DSItem" inverseName="shopingCart" inverseEntity="DSItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DSAdress" positionX="-27" positionY="-135" width="128" height="133"/>
-        <element name="DSItem" positionX="-27" positionY="18" width="128" height="178"/>
+        <element name="DSAdress" positionX="-27" positionY="-135" width="128" height="150"/>
+        <element name="DSItem" positionX="-27" positionY="18" width="128" height="195"/>
         <element name="DSOrder" positionX="349" positionY="33" width="128" height="118"/>
         <element name="DSShopingCart" positionX="349" positionY="171" width="128" height="73"/>
     </elements>

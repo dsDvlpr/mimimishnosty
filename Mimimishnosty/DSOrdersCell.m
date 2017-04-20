@@ -7,18 +7,30 @@
 //
 
 #import "DSOrdersCell.h"
+#import "DSCollectionViewItemCell.h"
 
 @implementation DSOrdersCell
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    UINib *collectionCellNib = [UINib nibWithNibName:NSStringFromClass([DSCollectionViewItemCell class]) bundle:[NSBundle mainBundle]];
+    
+    [self.itemsCollectionView registerNib:collectionCellNib
+               forCellWithReuseIdentifier:itemCollectionCellIdentifier];
+    
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate indexPath:(NSIndexPath *)indexPath {
+    
+    self.itemsCollectionView.dataSource = dataSourceDelegate;
+    self.itemsCollectionView.delegate = dataSourceDelegate;
+    self.itemsCollectionView.indexPath = indexPath;
+    [self.itemsCollectionView setContentOffset:self.itemsCollectionView.contentOffset animated:NO];
+    
+    [self.itemsCollectionView reloadData];
 
-    // Configure the view for the selected state
+    
 }
 
 @end

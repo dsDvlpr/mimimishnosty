@@ -11,6 +11,7 @@
 
 @interface DSShopCell : UITableViewCell
 
+@property (strong, nonatomic) NSDictionary *itemInfo;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;

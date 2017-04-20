@@ -28,28 +28,33 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9vT-YF-bcT">
-                                <rect key="frame" x="188" y="0.0" width="163" height="183"/>
+                                <rect key="frame" x="188" y="0.0" width="163" height="175"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Держатель для соски Аделина" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-b0-Etq">
-                                        <rect key="frame" x="0.0" y="0.0" width="163" height="116.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="163" height="108.5"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 руб." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-xR-QNR">
-                                        <rect key="frame" x="0.0" y="124.5" width="163" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="116.5" width="163" height="20.5"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7k-Zr-hcU">
-                                        <rect key="frame" x="0.0" y="153" width="163" height="30"/>
+                                        <rect key="frame" x="0.0" y="145" width="163" height="30"/>
                                         <color key="backgroundColor" red="0.48627450979999998" green="0.72156862749999995" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="В корзину">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="actionBuyItem:" destination="TT1-E4-Zsx" eventType="touchUpInside" id="oY6-uh-trx"/>
                                         </connections>
@@ -64,7 +69,7 @@
                             <constraint firstItem="HsQ-Ks-85S" firstAttribute="top" secondItem="DRi-Mf-Bkh" secondAttribute="top" id="ACG-Te-asM"/>
                             <constraint firstAttribute="bottom" secondItem="HsQ-Ks-85S" secondAttribute="bottom" id="Bev-XG-eTR"/>
                             <constraint firstItem="9vT-YF-bcT" firstAttribute="top" secondItem="DRi-Mf-Bkh" secondAttribute="top" id="HHZ-dT-Fyv"/>
-                            <constraint firstAttribute="bottom" secondItem="9vT-YF-bcT" secondAttribute="bottom" id="bEC-bq-X2V"/>
+                            <constraint firstAttribute="bottom" secondItem="9vT-YF-bcT" secondAttribute="bottom" constant="8" id="bEC-bq-X2V"/>
                             <constraint firstItem="9vT-YF-bcT" firstAttribute="leading" secondItem="HsQ-Ks-85S" secondAttribute="trailing" constant="8" symbolic="YES" id="pKh-tn-5k2"/>
                             <constraint firstAttribute="trailing" secondItem="9vT-YF-bcT" secondAttribute="trailing" constant="8" id="wJR-wf-J9s"/>
                         </constraints>

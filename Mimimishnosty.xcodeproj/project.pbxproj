@@ -57,6 +57,9 @@
 		6D00C5191EA17B0D0052EB61 /* DSOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C5181EA17B0D0052EB61 /* DSOrdersViewController.m */; };
 		6D00C5211EA180550052EB61 /* DSOrdersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D00C51F1EA180550052EB61 /* DSOrdersCell.m */; };
 		6D00C5221EA180550052EB61 /* DSOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D00C5201EA180550052EB61 /* DSOrdersCell.xib */; };
+		6DF2211A1EA5192D0064ED37 /* DSCollectionViewItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF221181EA5192D0064ED37 /* DSCollectionViewItemCell.m */; };
+		6DF2211B1EA5192D0064ED37 /* DSCollectionViewItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DF221191EA5192D0064ED37 /* DSCollectionViewItemCell.xib */; };
+		6DF2211F1EA6CE930064ED37 /* DSItemsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2211E1EA6CE930064ED37 /* DSItemsCollectionView.m */; };
 		C31E2548AD98707BE32606BA /* libPods-Mimimishnosty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +144,11 @@
 		6D00C51E1EA180550052EB61 /* DSOrdersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSOrdersCell.h; sourceTree = "<group>"; };
 		6D00C51F1EA180550052EB61 /* DSOrdersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSOrdersCell.m; sourceTree = "<group>"; };
 		6D00C5201EA180550052EB61 /* DSOrdersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSOrdersCell.xib; sourceTree = "<group>"; };
+		6DF221171EA5192D0064ED37 /* DSCollectionViewItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCollectionViewItemCell.h; sourceTree = "<group>"; };
+		6DF221181EA5192D0064ED37 /* DSCollectionViewItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCollectionViewItemCell.m; sourceTree = "<group>"; };
+		6DF221191EA5192D0064ED37 /* DSCollectionViewItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSCollectionViewItemCell.xib; sourceTree = "<group>"; };
+		6DF2211D1EA6CE930064ED37 /* DSItemsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSItemsCollectionView.h; sourceTree = "<group>"; };
+		6DF2211E1EA6CE930064ED37 /* DSItemsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSItemsCollectionView.m; sourceTree = "<group>"; };
 		9E5414CB9B4A10C249D9C393 /* libPods-Mimimishnosty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mimimishnosty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0535E072FA72647C41E1C3A /* Pods-Mimimishnosty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimimishnosty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimimishnosty/Pods-Mimimishnosty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -478,11 +486,32 @@
 			children = (
 				6D00C5171EA17B0C0052EB61 /* DSOrdersViewController.h */,
 				6D00C5181EA17B0D0052EB61 /* DSOrdersViewController.m */,
+				6DF221131EA513580064ED37 /* TableViewCell */,
+				6DF2211C1EA51E7C0064ED37 /* CollectionViewCell */,
+				6DF2211D1EA6CE930064ED37 /* DSItemsCollectionView.h */,
+				6DF2211E1EA6CE930064ED37 /* DSItemsCollectionView.m */,
+			);
+			name = Orders;
+			sourceTree = "<group>";
+		};
+		6DF221131EA513580064ED37 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				6D00C51E1EA180550052EB61 /* DSOrdersCell.h */,
 				6D00C51F1EA180550052EB61 /* DSOrdersCell.m */,
 				6D00C5201EA180550052EB61 /* DSOrdersCell.xib */,
 			);
-			name = Orders;
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		6DF2211C1EA51E7C0064ED37 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6DF221171EA5192D0064ED37 /* DSCollectionViewItemCell.h */,
+				6DF221181EA5192D0064ED37 /* DSCollectionViewItemCell.m */,
+				6DF221191EA5192D0064ED37 /* DSCollectionViewItemCell.xib */,
+			);
+			name = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -565,6 +594,7 @@
 				6D0099CF1E87554C001E5A50 /* Shoping_Cart_Passive.png in Resources */,
 				6D0099CB1E87554C001E5A50 /* Orders_Passive.png in Resources */,
 				6D00C5221EA180550052EB61 /* DSOrdersCell.xib in Resources */,
+				6DF2211B1EA5192D0064ED37 /* DSCollectionViewItemCell.xib in Resources */,
 				6D00C4FA1E9A8B550052EB61 /* selfDelivery.jpg in Resources */,
 				6D00999C1E8022A2001E5A50 /* Main.storyboard in Resources */,
 				6D0099CD1E87554C001E5A50 /* Shop_Passive.png in Resources */,
@@ -635,6 +665,7 @@
 				6D0099FD1E8DEDDC001E5A50 /* DSPhotoViewerController.m in Sources */,
 				6D0099DA1E87FC20001E5A50 /* DSMarketItem.m in Sources */,
 				6D0099BB1E8032D1001E5A50 /* DSVKManager.m in Sources */,
+				6DF2211A1EA5192D0064ED37 /* DSCollectionViewItemCell.m in Sources */,
 				6D009A091E913B7E001E5A50 /* DSShopingCart.m in Sources */,
 				6D00C5091E9D7C990052EB61 /* DSPlaceOrderCell.m in Sources */,
 				6D0099991E8022A2001E5A50 /* ViewController.m in Sources */,
@@ -651,6 +682,7 @@
 				6D0099961E8022A2001E5A50 /* AppDelegate.m in Sources */,
 				6D0099D61E8756F7001E5A50 /* DSShopViewController.m in Sources */,
 				6D009A1A1E92A575001E5A50 /* DSShopingCartCell.m in Sources */,
+				6DF2211F1EA6CE930064ED37 /* DSItemsCollectionView.m in Sources */,
 				6D00C5191EA17B0D0052EB61 /* DSOrdersViewController.m in Sources */,
 				6D0099F91E8C216A001E5A50 /* DSItemViewController.m in Sources */,
 				6D0099931E8022A2001E5A50 /* main.m in Sources */,

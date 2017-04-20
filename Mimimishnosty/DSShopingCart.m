@@ -26,7 +26,6 @@
 
 - (void) addItemMOWithId: (int32_t)itemId {
     
-    NSLog(@"\n\n- (void) addItemMOWithId");
     DSItemMOManager *itemMOManager = [[DSItemMOManager alloc] init];
     
     if ([self itemMOWithIdIsInShopingCart:itemId]) {
@@ -61,7 +60,6 @@
 
 - (void) showItemsInShopingCart {
     NSArray *itemsInShopingCart = [self allItems];
-    NSLog(@"\n\nItems in shoping cart:");
     for (DSItem_MO *item in itemsInShopingCart) {
         NSLog(@"\n%@", item.title);
     }

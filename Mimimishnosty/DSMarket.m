@@ -11,6 +11,7 @@
 #import "DSVKManager.h"
 #import "DSShopingCart.h"
 #import "DSAdressMOManager.h"
+#import "SCLAlertView.h"
 
 @implementation DSMarket
 
@@ -33,9 +34,17 @@
     int32_t itemId = [[item valueForKey:DSVKMarketItemIdKey]intValue];
     
     if (![itemManager itemMOWithIdDoesExist:itemId]) {
-        NSLog(@"\n- (void) addItemToShopingCart:\n No such item in core data");
+        
         [itemManager createItemMOWithDictionary:item];
     }
+    
+        NSString *greetings = @"Добавлено в корзину:";
+        SCLAlertView *alertView = [[SCLAlertView alloc] initWithNewWindow];
+        [alertView showSuccess:greetings
+                      subTitle:[item objectForKey:DSVKMarketItemTitleKey]
+              closeButtonTitle:@"OK"
+                      duration:5];
+
     
     [shopingCart addItemMOWithId:itemId];
 }
@@ -53,6 +62,7 @@
     [shopingCart clearShopingCart];
     
 }
+
 
 - (NSString *) adressString {
     

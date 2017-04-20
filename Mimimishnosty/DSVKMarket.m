@@ -100,8 +100,6 @@ NSString *const DSVKMarketItemIdKey                = @"id";
                         NSArray *items = [response objectForKey:@"items"];
                         self.items = [NSArray arrayWithArray:items];
                         
-                        NSLog(@"\n%@", self.items);
-                        NSLog(@"\n\nItems loaded");
                         result = YES;
                         
                     }

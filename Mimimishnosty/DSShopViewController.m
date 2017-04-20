@@ -22,6 +22,7 @@
 @implementation DSShopViewController
 
 static NSString *identifier = @"shopCell";
+static NSString *emptyCellIdentifier = @"emptyCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,11 +30,14 @@ static NSString *identifier = @"shopCell";
     DSVKManager *vkManager = [DSVKManager sharedManager];
     self.items = vkManager.vkMarket.items;
     
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([DSShopCell class])
                                 bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib
          forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:emptyCellIdentifier];
+
     
     UIColor *color = [UIColor colorWithRed:223.f/256.f
                                      green:81.f/256.f
@@ -68,48 +72,70 @@ static NSString *identifier = @"shopCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    NSLog(@"\n\nNumber of rows:%ld",[self.items count]);
-    return [self.items count];
+    return [self.items count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identifier = @"shopCell";
-    
-    DSShopCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[DSShopCell alloc] init];
+    if (indexPath.row < [self.items count]) {
+        
+        DSShopCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[DSShopCell alloc] init];
+        }
+        
+        NSDictionary *item = [self.items objectAtIndex:indexPath.row];
+        
+        cell.itemInfo = item;
+        
+        NSString *title = [item valueForKey:DSVKMarketItemTitleKey];
+        cell.titleLabel.text = [title stringByReplacingOccurrencesOfString:@"для соски и прорезывателя" withString:@""];
+        
+        NSDictionary *priceDictionary = [item valueForKey:DSVKMarketItemPriceKey];
+        cell.priceLabel.text = [priceDictionary valueForKey:@"text"];
+        
+        NSURL *mainImageURL = [NSURL URLWithString:[item valueForKey:DSVKMarketItemMainImageURLKey]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:mainImageURL];
+        __weak DSShopCell *weakCell = cell;
+        [cell.itemImageView setImageWithURLRequest:request
+                                  placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
+                                           success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                               
+                                               weakCell.itemImageView.image = image;
+                                               [weakCell layoutSubviews];
+                                               
+                                           }
+                                           failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                               
+                                               NSLog(@"Image not loaded");
+                                               
+                                           }];
+        
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:emptyCellIdentifier];
+        }
+        UIColor *color = [UIColor colorWithRed:223.f/256.f
+                                         green:81.f/256.f
+                                          blue:88.f/256.f
+                                         alpha:1.f];
+
+        cell.backgroundColor = color;
+        
+        return cell;
     }
     
-    NSDictionary *item = [self.items objectAtIndex:indexPath.row];
-    
-    cell.titleLabel.text = [item valueForKey:DSVKMarketItemTitleKey];
-    
-    NSDictionary *priceDictionary = [item valueForKey:DSVKMarketItemPriceKey];
-    cell.priceLabel.text = [priceDictionary valueForKey:@"text"];
-    
-    NSURL *mainImageURL = [NSURL URLWithString:[item valueForKey:DSVKMarketItemMainImageURLKey]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:mainImageURL];
-    __weak DSShopCell *weakCell = cell;
-    [cell.itemImageView setImageWithURLRequest:request
-                              placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
-                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-                                           
-                                           weakCell.itemImageView.image = image;
-                                           [weakCell layoutSubviews];
-                                           
-                                       }
-                                       failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                                           
-                                           NSLog(@"Image not loaded");
-                                           
-                                       }];
-    
-    return cell;
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == [self.items count]) {
+        return 44.f;
+    }
     
     return 200.f;
 }

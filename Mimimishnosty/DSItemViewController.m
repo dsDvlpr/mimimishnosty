@@ -13,7 +13,6 @@
 #import "DSVKManager.h"
 #import "DSMarket.h"
 
-
 NSString *const DSShopItemBuyNotification = @"DSShopItemBuyNotification";
 
 @interface DSItemViewController () <UITextFieldDelegate>

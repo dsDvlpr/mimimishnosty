@@ -70,8 +70,7 @@ static NSArray *scope = nil;
             
             [self loadUser];
             [self.vkMarket loadMarketItems];
-            
-            NSLog(@"\nАвторизовались по старинке");
+
             self.isAuthorisationViewControllerHidden = YES;
             
             
@@ -79,7 +78,7 @@ static NSArray *scope = nil;
             
             if (error) {
                 
-                NSLog(@"\nWakeUpSession error %@", error);
+                NSLog(@"\nVK WakeUpSession error %@", error);
             }
             
             [VKSdk authorize:scope];        }
@@ -238,7 +237,7 @@ static NSArray *scope = nil;
     [alertView showSuccess:greetings
                   subTitle:@"Добро пожаловать!"
           closeButtonTitle:@"OK"
-                  duration:7];
+                  duration:3];
     
 }
 

@@ -35,6 +35,8 @@ static NSString *itemIdentifier = @"shopingCartCell";
 static NSString *deliveryChooseIdentifier = @"deliveryChooseCell";
 static NSString *adressIdentifier = @"adressCell";
 static NSString *placeOrderIdentifier = @"placeOrderCell";
+static NSString *emptyCellIdentifier = @"emptyCell";
+
 static NSString *groupDegustatoryId = @"-129235573";
 
 NSString *adress;
@@ -45,6 +47,14 @@ NSString *adress;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIColor *color = [UIColor colorWithRed:253.f/256.f
+                                     green:240.f/256.f
+                                      blue:240.f/256.f
+                                     alpha:1.f];
+    
+    self.tableView.backgroundColor = color;
+
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     adress = [[DSMarket sharedManager] adressString];
     UIBarButtonItem *clearBarButton =
     [[UIBarButtonItem alloc] initWithTitle:@"Очистить корзину"
@@ -69,6 +79,8 @@ NSString *adress;
          forCellReuseIdentifier:adressIdentifier];
     [self.tableView registerNib:placeOrderNib
          forCellReuseIdentifier:placeOrderIdentifier];
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:emptyCellIdentifier];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleUpdateAdress:)
@@ -133,8 +145,6 @@ NSString *adress;
         [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                               withRowAnimation:UITableViewRowAnimationBottom];
         
-        NSLog(@"deleteRowsAtIndexPaths");
-        
     } else if (type == NSFetchedResultsChangeInsert) {
         
         [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
@@ -160,7 +170,7 @@ NSString *adress;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return [[self.fetchedResultsController sections] count] + 2;
+    return [[self.fetchedResultsController sections] count] + 3;
 
 }
 
@@ -172,7 +182,7 @@ NSString *adress;
             break;
             
         case 1:
-            return 3;
+            return 4;
             break;
             
         default:
@@ -200,8 +210,7 @@ NSString *adress;
         cell.itemMO = itemMO;
         DSVKManager *vkManager = [DSVKManager sharedManager];
         NSDictionary *itemInfo = [[vkManager vkMarket] itemInfoDictionaryForId:itemId];
-        NSString *photoURLString = [itemInfo objectForKey:DSVKMarketItemMainImageURLKey];
-        NSURL *imageURL = [NSURL URLWithString:photoURLString];
+        NSURL *imageURL = [NSURL URLWithString:itemMO.iconURLString];
         NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
         __weak DSShopingCartCell *weakCell = cell;
         [cell.mainImageView setImageWithURLRequest:request
@@ -209,13 +218,16 @@ NSString *adress;
                                            success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
                                                
                                                weakCell.mainImageView.image = image;
+                                               
                                                [weakCell layoutSubviews];
                                                
                                            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                               NSLog(@"\n\n cell image IS NOT downloaded, because %@", error);
                                                ;
                                            }];
         
-        cell.titleLabel.text = itemMO.title;
+        NSString *title = itemMO.title;
+        cell.titleLabel.text = [title stringByReplacingOccurrencesOfString:@"для соски и прорезывателя" withString:@""];
         cell.quantityLabel.text = [NSString stringWithFormat:@"%d", itemMO.quantity];
         cell.priceLabel.text = [[itemInfo objectForKey:DSVKMarketItemPriceKey]
                                 objectForKey:@"text"];
@@ -245,7 +257,7 @@ NSString *adress;
         }
         
         if (self.isDeliverySelected) {
-            cell.adressLabel.text = adress;
+            cell.adressLabel.text = [adress length] > 1 ? adress : @"Введите адрес";
         } else {
             cell.adressLabel.text = @"Забрать товар Вы можете по адресу: Уральская ул. д. 19 корп.1";
         }
@@ -261,11 +273,19 @@ NSString *adress;
         }
         
         cell.deliveryLabel.alpha = self.isDeliverySelected ? 1.f :0.f;
-        cell.totalPrice.text = [NSString stringWithFormat:@"%ld", self.totalPrice];
+        cell.totalPrice.text = [NSString stringWithFormat:@"%ld", (long)self.totalPrice];
         cell.isDeliveryChosen = self.isDeliverySelected;
         
         return cell;
         
+    } else if (indexPath.section == 1 && indexPath.row == 3) {
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:emptyCellIdentifier];
+        }
+        
+        return cell;
     }
     
     return nil;
@@ -287,7 +307,6 @@ NSString *adress;
         NSError *error = nil;
         if (![context save:&error]) {
             
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
     }

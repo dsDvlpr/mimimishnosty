@@ -16,39 +16,64 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hN-hF-5Cd">
-                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <rect key="frame" x="8" y="7" width="304" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="7wI-Jc-uyV"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена: 550 руб." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-yC-gPG">
-                        <rect key="frame" x="180" y="171" width="132" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена: 550 руб." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-yC-gPG">
+                        <rect key="frame" x="8" y="170" width="304" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="uZa-si-0Ex"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Москва, ул. Садовая 302-бис кв. 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hlL-B4-aRa">
+                        <rect key="frame" x="8" y="141" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7BC-LN-2Hv" customClass="DSItemsCollectionView">
+                        <rect key="frame" x="8" y="36" width="304" height="97"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yBk-Gq-3ff">
+                            <size key="itemSize" width="97" height="97"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
-                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="6hN-hF-5Cd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2oU-Rj-bWa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="6hN-hF-5Cd" secondAttribute="bottom" constant="163" id="8Vl-X2-hFj"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="hlL-B4-aRa" secondAttribute="leading" id="L9E-3B-kg3"/>
                     <constraint firstAttribute="leadingMargin" secondItem="6hN-hF-5Cd" secondAttribute="leading" id="LDq-Tx-gH6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ZZf-yC-gPG" secondAttribute="trailing" id="MZd-MV-nGC"/>
-                    <constraint firstItem="ZZf-yC-gPG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="172" id="VUg-Sk-e5d"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZZf-yC-gPG" secondAttribute="bottom" id="nyS-S7-jFw"/>
+                    <constraint firstItem="hlL-B4-aRa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="To6-GK-Nrr"/>
+                    <constraint firstItem="ZZf-yC-gPG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="VUg-Sk-e5d"/>
+                    <constraint firstItem="7BC-LN-2Hv" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xts-S7-Uc2"/>
+                    <constraint firstItem="ZZf-yC-gPG" firstAttribute="top" secondItem="hlL-B4-aRa" secondAttribute="bottom" constant="8" id="icS-C2-7aD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZZf-yC-gPG" secondAttribute="bottom" constant="1" id="nyS-S7-jFw"/>
+                    <constraint firstItem="ZZf-yC-gPG" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="oTZ-a3-WjO"/>
+                    <constraint firstItem="7BC-LN-2Hv" firstAttribute="top" secondItem="6hN-hF-5Cd" secondAttribute="bottom" constant="8" id="qql-9v-GMV"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="7BC-LN-2Hv" secondAttribute="leading" id="rzr-w1-WYg"/>
+                    <constraint firstItem="hlL-B4-aRa" firstAttribute="top" secondItem="7BC-LN-2Hv" secondAttribute="bottom" constant="8" id="yTB-cj-gHY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="adressLabel" destination="hlL-B4-aRa" id="UeI-wR-VeZ"/>
+                <outlet property="itemsCollectionView" destination="7BC-LN-2Hv" id="2i4-qe-fX1"/>
                 <outlet property="orderDateLabel" destination="6hN-hF-5Cd" id="ycI-1l-JJ4"/>
                 <outlet property="priceLabel" destination="ZZf-yC-gPG" id="TMg-Af-0vf"/>
             </connections>

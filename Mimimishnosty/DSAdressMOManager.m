@@ -9,6 +9,11 @@
 #import "DSAdressMOManager.h"
 #import "DSCoreDataManager.h"
 
+@interface DSAdressMOManager ()
+
+@property (assign, nonatomic) NSInteger adressesNumber;
+
+@end
 
 @implementation DSAdressMOManager
 
@@ -17,20 +22,25 @@
     NSFetchRequest *fetchRequest = [DSAdress_MO fetchRequest];
     DSCoreDataManager *coreDataManager = [DSCoreDataManager sharedManager];
     NSManagedObjectContext *context = coreDataManager.persistentContainer.viewContext;
-    NSPredicate *ordersPredicate = [NSPredicate predicateWithFormat:@"order == %@", nil];
+    NSPredicate *ordersPredicate = [NSPredicate predicateWithFormat:@"adressId == %d", 1];
     
     fetchRequest.predicate = ordersPredicate;
     NSArray *adressesMO = [context executeFetchRequest:fetchRequest error:nil];
     
+    self.adressesNumber = [adressesMO count];
+    NSLog(@"\n\nall adresses: %ld", (long)self.adressesNumber);
+    
     if ([adressesMO count] > 0) {
         
         DSAdress_MO *adressMO = [adressesMO firstObject];
-        [coreDataManager saveContext];
+        
+        //[coreDataManager saveContext];
         return adressMO;
     
     } else {
         
         DSAdress_MO *adressMO = [[DSAdress_MO alloc] initWithContext:context];
+        adressMO.adressId = 1;
         [coreDataManager saveContext];
         return adressMO;
         
@@ -52,9 +62,39 @@
     newAdress.street = oldAdress.street;
     newAdress.flat = oldAdress.flat;
     
+    newAdress.adressId = (int)self.adressesNumber;
+    
     [coreDataManager saveContext];
     
     return newAdress;
+}
+
+- (NSString *) adressStringForAdressMO:(DSAdress_MO *) adress {
+    
+    NSMutableString *result = [NSMutableString string];
+    
+    if ([adress.city length] > 0) {
+        [result appendString:adress.city];
+    }
+    
+    if ([adress.street length] > 0) {
+        [result appendString:[NSString stringWithFormat:@" ул. %@", adress.street]];
+    }
+    
+    if ([adress.house length] > 0) {
+        [result appendString:[NSString stringWithFormat:@", д. %@", adress.house]];
+    }
+    
+    if ([adress.building length] > 0) {
+        [result appendString:[NSString stringWithFormat:@" %@", adress.building]];
+    }
+    
+    if ([adress.flat length] > 0) {
+        [result appendString:[NSString stringWithFormat:@", кв. %@", adress.flat]];
+    }
+    
+    return [NSString stringWithFormat:@"%@", result];
+    
 }
 
 #pragma mark - Setters

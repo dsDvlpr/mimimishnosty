@@ -29,6 +29,8 @@
         resultItem.itemDescription = [item objectForKey:DSVKMarketItemDescriptionKey];
         resultItem.itemId = itemId;
         resultItem.imageURLString = [item objectForKey:DSVKMarketItemMainImageURLKey];
+        NSArray *photos = [item objectForKey:@"photos"];
+        resultItem.iconURLString = [[photos firstObject] objectForKey:@"photo_130"];
         
         [coreDataManager saveContext];
     }

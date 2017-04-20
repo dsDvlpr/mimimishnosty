@@ -16,7 +16,7 @@
 - (NSArray *) allItems;
 - (void) addItemMOWithId: (int32_t)itemId;
 - (DSShopingCart_MO *) defaultShopingCart;
-- (DSAdress_MO *) adressCopy;
+//- (DSAdress_MO *) adressCopy;
 - (void) clearShopingCart;
 
 @end

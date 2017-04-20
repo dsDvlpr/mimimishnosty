@@ -19,5 +19,7 @@
 
 - (DSAdress_MO *) currentAdressMO;
 - (DSAdress_MO *) adressCopy;
+- (NSString *) adressStringForAdressMO:(DSAdress_MO *) adress;
+
 
 @end

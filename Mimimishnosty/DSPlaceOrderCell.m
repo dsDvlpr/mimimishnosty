@@ -8,6 +8,7 @@
 
 #import "DSPlaceOrderCell.h"
 #import "DSOrderMOManager.h"
+#import "SCLAlertView.h"
 
 @implementation DSPlaceOrderCell
 
@@ -25,6 +26,15 @@
 - (IBAction)actionPlaceOrder:(UIButton *)sender {
     
     DSOrderMOManager *orderManager = [[DSOrderMOManager alloc] init];
+
+    NSString *greetings = @"Заказ оформлен!";
+    SCLAlertView *alertView = [[SCLAlertView alloc] initWithNewWindow];
+    [alertView showSuccess:greetings
+                  subTitle:nil
+          closeButtonTitle:@"OK"
+                  duration:5];
+
+    
     [orderManager createNewOrderWithDelivery:self.isDeliveryChosen];
     
 }

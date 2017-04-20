@@ -10,27 +10,38 @@
 #import "DSCoreDataManager.h"
 #import "DSOrdersCell.h"
 #import "DSOrderMOManager.h"
+#import "DSCollectionViewItemCell.h"
+#import "DSItem_MO+CoreDataClass.h"
+#import "DSVKManager.h"
+#import "DSMarket.h"
+#import <AFNetworking.h>
+#import "UIImageView+AFNetworking.h"
+#import "DSAdressMOManager.h"
 
-@interface DSOrdersViewController ()<NSFetchedResultsControllerDelegate>
+@interface DSOrdersViewController ()<NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) DSAdressMOManager *adressManager;
 
 @end
 
 static NSString *ordersIdentifier = @"ordersCell";
+static NSString *emptyCellIdentifier = @"emptyCell";
 
 @implementation DSOrdersViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UINib *ordersNib = [UINib nibWithNibName:NSStringFromClass([DSOrdersCell class]) bundle:[NSBundle mainBundle]];
-    
-    [self.tableView registerNib:ordersNib
+
+    self.adressManager = [[DSAdressMOManager alloc] init];
+    UINib *orderCellNib = [UINib nibWithNibName:NSStringFromClass([DSOrdersCell class]) bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:orderCellNib
          forCellReuseIdentifier:ordersIdentifier];
     
-    // Uncomment the following line to preserve selection between presentations.
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:emptyCellIdentifier];
+    
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -52,7 +63,7 @@ static NSString *ordersIdentifier = @"ordersCell";
     
     NSFetchRequest *fetchRequest = [DSOrder_MO fetchRequest];
     
-    NSSortDescriptor *sortTitleDescriptor = [[NSSortDescriptor alloc]initWithKey:@"date" ascending:YES];
+    NSSortDescriptor *sortTitleDescriptor = [[NSSortDescriptor alloc]initWithKey:@"date" ascending:NO];
     
     fetchRequest.sortDescriptors = @[sortTitleDescriptor];
     NSFetchedResultsController *frc =
@@ -91,7 +102,6 @@ static NSString *ordersIdentifier = @"ordersCell";
         [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                               withRowAnimation:UITableViewRowAnimationBottom];
         
-        NSLog(@"deleteRowsAtIndexPaths");
         
     } else if (type == NSFetchedResultsChangeInsert) {
         
@@ -125,29 +135,57 @@ static NSString *ordersIdentifier = @"ordersCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    return [sectionInfo numberOfObjects] + 1;
 
 }
 
+- (NSUInteger) ordersCount {
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][0];
+    NSUInteger result = [sectionInfo numberOfObjects];
+
+    return result;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DSOrdersCell *cell = [tableView dequeueReusableCellWithIdentifier:ordersIdentifier forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[DSOrdersCell alloc] init];
+    if (indexPath.row == [self ordersCount]) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyCellIdentifier forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:emptyCellIdentifier];
+        }
+        
+        return cell;
+        
+    } else {
+        
+        DSOrdersCell *cell = [tableView dequeueReusableCellWithIdentifier:ordersIdentifier forIndexPath:indexPath];
+        
+        if (!cell) {
+            cell = [[DSOrdersCell alloc] init];
+        }
+        
+        DSOrder_MO *order = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSDate *orderDate = order.date;
+        NSCalendarUnit units = kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay;
+        
+        NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:units fromDate: orderDate];
+        
+        NSString *month = [[NSCalendar currentCalendar].shortMonthSymbols objectAtIndex:[dateComponents month] - 1];
+        
+        cell.orderDateLabel.text = [NSString stringWithFormat:@"Заказ %ld %@ %ld", (long)dateComponents.day, month, (long)dateComponents.year];
+        
+        DSOrderMOManager *orderManager = [[DSOrderMOManager alloc] init];
+        NSInteger totalPrice = [orderManager totalPriceOfOrder:order];
+        cell.priceLabel.text = [NSString stringWithFormat:@"%ld руб.", (long)totalPrice];
+        
+        cell.adressLabel.text = order.delivery ? [self.adressManager adressStringForAdressMO:order.adress] : @"Самовывоз";
+        
+        return cell;
+        
     }
     
-    DSOrder_MO *order = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSDate *orderDate = order.date;
-    NSCalendarUnit units = kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay;
-    
-    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:units fromDate: orderDate];
-    
-    NSString *month = [[NSCalendar currentCalendar].shortMonthSymbols objectAtIndex:[dateComponents month] - 1];
-    
-    cell.orderDateLabel.text = [NSString stringWithFormat:@"Заказ %ld %@ %ld", (long)dateComponents.day, month, (long)dateComponents.year];
-    
-    return cell;
+    return nil;
 }
 
 
@@ -172,6 +210,18 @@ static NSString *ordersIdentifier = @"ordersCell";
     }
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(DSOrdersCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != [self ordersCount]) {
+
+        [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
+
+    }
+    
+/*    CGFloat horizontalOffset = [self.contentOffsetDictionary[[@(index) stringValue]] floatValue];
+    [cell.itemsCollectionView setContentOffset:CGPointMake(horizontalOffset, 0)];*/
+}
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // The table view should not be re-orderable.
@@ -182,9 +232,61 @@ static NSString *ordersIdentifier = @"ordersCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row == [self ordersCount]) {
+        return 44.f;
+    }
+    
     return 200.f;
     
 }
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(DSItemsCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    DSOrder_MO *order = [self.fetchedResultsController objectAtIndexPath:collectionView.indexPath];
+    
+
+    return [order.items count];
+    
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (__kindof UICollectionViewCell *)collectionView:(DSItemsCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    DSCollectionViewItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemCollectionCellIdentifier
+                                                                               forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[DSCollectionViewItemCell alloc] init];
+    }
+    DSOrder_MO *order = [self.fetchedResultsController objectAtIndexPath:collectionView.indexPath];
+    
+    NSArray<DSItem_MO *> *items = [order.items allObjects];
+    DSItem_MO *itemForCell = [items objectAtIndex:indexPath.row];
+    NSString *title = itemForCell.title;
+    cell.titleLabel.text = [title stringByReplacingOccurrencesOfString:@"для соски и прорезывателя" withString:@""];
+    
+    NSURL *imageURL = [NSURL URLWithString:itemForCell.iconURLString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+    __weak DSCollectionViewItemCell *weakCell = cell;
+    [cell.itemImageView setImageWithURLRequest:request
+                              placeholderImage:[UIImage imageNamed:@"defaultPic.png"]
+                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                           
+                                           weakCell.itemImageView.image = image;
+                                           
+                                           [weakCell layoutSubviews];
+                                           
+                                       } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                           
+                                       }];
+
+    
+    return cell;
+    
+}
+
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {

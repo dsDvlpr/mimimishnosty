@@ -7,6 +7,8 @@
 //
 
 #import "DSShopCell.h"
+#import "DSMarket.h"
+
 
 @implementation DSShopCell
 
@@ -22,5 +24,9 @@
 }
 
 - (IBAction)actionBuyItem:(UIButton *)sender {
+
+    DSMarket *market = [[DSMarket alloc]init];
+    [market addItemToShopingCart:self.itemInfo];
+
 }
 @end
