@@ -118,6 +118,9 @@ NSInteger imageRow = 0;
 
 #pragma mark - Actions
 
+- (IBAction)nameTextFieldChanged:(UITextField *)sender {
+}
+
 - (IBAction)actionTextFieldSwitch:(UISwitch *)sender {
     
     nameTextFieldIsShown = sender.isOn;

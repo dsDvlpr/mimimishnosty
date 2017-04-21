@@ -177,6 +177,9 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="nameTextFieldChanged:" destination="fBb-0J-Fra" eventType="editingChanged" id="9Hc-yq-sws"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -238,20 +241,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f5v-ox-8wu" id="7Vq-4m-jX3">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfZ-q3-EbF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="xfZ-q3-EbF" firstAttribute="leading" secondItem="7Vq-4m-jX3" secondAttribute="leading" id="OCs-dZ-0WI"/>
-                                                <constraint firstAttribute="bottom" secondItem="xfZ-q3-EbF" secondAttribute="bottom" id="WQY-W4-xri"/>
-                                                <constraint firstAttribute="trailing" secondItem="xfZ-q3-EbF" secondAttribute="trailing" id="fZy-uY-M4u"/>
-                                                <constraint firstItem="xfZ-q3-EbF" firstAttribute="top" secondItem="7Vq-4m-jX3" secondAttribute="top" id="umq-2w-MKE"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.87450980389999999" green="0.31764705879999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>

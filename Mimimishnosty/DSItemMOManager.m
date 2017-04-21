@@ -30,7 +30,7 @@
         resultItem.itemId = itemId;
         resultItem.imageURLString = [item objectForKey:DSVKMarketItemMainImageURLKey];
         NSArray *photos = [item objectForKey:@"photos"];
-        resultItem.iconURLString = [[photos firstObject] objectForKey:@"photo_130"];
+        resultItem.iconURLString = [[photos firstObject] objectForKey:@"photo_604"];
         
         [coreDataManager saveContext];
     }

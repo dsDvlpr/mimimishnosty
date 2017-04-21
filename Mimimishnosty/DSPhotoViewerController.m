@@ -32,7 +32,7 @@
         
         [self updateMainImageView];
         [self initializePhotos];
-        [self downloadPhotos];
+        //[self downloadPhotos];
 
         self.photoViewController = [[NYTPhotosViewController alloc] initWithPhotos:self.photos
                                                                       initialPhoto:self.currentPhoto
@@ -49,6 +49,7 @@
 - (void) handleImageViewTap:(UITapGestureRecognizer*) recognizer {
     
     NSLog(@"Image tapped");
+    [self downloadPhotos];
     [self presentPhotoViewController];
     
 }

@@ -25,6 +25,7 @@ extern NSString *const DSShopItemBuyNotification;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
+- (IBAction)nameTextFieldChanged:(UITextField *)sender;
 - (IBAction)actionTextFieldSwitch:(UISwitch *)sender;
 - (IBAction)actionBuyShopItem:(UIButton *)sender;
 

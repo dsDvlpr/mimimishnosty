@@ -150,14 +150,10 @@ NSString *adress;
         [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
                               withRowAnimation:UITableViewRowAnimationRight];
         self.totalPriceValue = [self totalPrice];
-        [self.tableView reloadData];
 
-    } else {
-        
-        [self.tableView reloadData];
-        
     }
     
+    [self.tableView reloadData];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
