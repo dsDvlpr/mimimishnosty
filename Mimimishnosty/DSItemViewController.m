@@ -12,6 +12,8 @@
 #import "DSPhotoViewerController.h"
 #import "DSVKManager.h"
 #import "DSMarket.h"
+#import "DSItemMOManager.h"
+#import "DSInscriptionMOManager.h"
 
 NSString *const DSShopItemBuyNotification = @"DSShopItemBuyNotification";
 
@@ -19,6 +21,7 @@ NSString *const DSShopItemBuyNotification = @"DSShopItemBuyNotification";
 
 @property (strong, nonatomic) NSIndexPath *nameTextFieldIndexPath;
 @property (strong, nonatomic) DSPhotoViewerController *photoViewerController;
+@property (strong, nonatomic) DSInscriptionMOManager *inscriptionManager;
 
 @end
 
@@ -32,11 +35,14 @@ NSInteger imageRow = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     if (self.itemInfo) {
         
         self.titleLabel.text = [self.itemInfo objectForKey:DSVKMarketItemTitleKey];
-        self.priceLabel.text = [[self.itemInfo objectForKey:DSVKMarketItemPriceKey] objectForKey:@"text"];
+        NSDictionary *priceDictionary = [self.itemInfo objectForKey:DSVKMarketItemPriceKey];
+        self.priceLabel.text = [priceDictionary objectForKey:@"text"];
+        nameTextFieldIsShown = [[priceDictionary valueForKey:@"amount"] intValue] == 40000;
+        
+        
         self.descriptionLabel.text = [self.itemInfo objectForKey:DSVKMarketItemDescriptionKey];
         
         NSArray *photoURLStrings = [self photoURLStringsFromItem:self.itemInfo];
@@ -45,6 +51,10 @@ NSInteger imageRow = 0;
                                            inViewController:self
                                                andImageView:self.mainImageView];
 
+        self.inscriptionManager = [[DSInscriptionMOManager alloc] init];
+        int32_t itemId = [[self.itemInfo objectForKey:DSVKMarketItemIdKey] intValue];
+        self.nameTextField.text = [self.inscriptionManager inscriptionStringForItemWithId:itemId inOrder:nil];
+        
         self.nameTextField.delegate = self;
     }
 
@@ -119,6 +129,11 @@ NSInteger imageRow = 0;
 #pragma mark - Actions
 
 - (IBAction)nameTextFieldChanged:(UITextField *)sender {
+    
+    int32_t itemId = [[self.itemInfo objectForKey:DSVKMarketItemIdKey] intValue];
+    [self.inscriptionManager setInscriptionString:sender.text
+                                forItemWithId:itemId];
+    
 }
 
 - (IBAction)actionTextFieldSwitch:(UISwitch *)sender {
